@@ -111,7 +111,7 @@ export default function Details() {
             {product.price}$ </p>
 
             <p className="text-xs text-surface/75 ">
-            {/* <input
+            <input
                 className="w-14 p-1 btn bg-primary"
                 style={{ background: "linear-gradient(to right, #FDC830, #F37335)" }}
                 type="number"
@@ -119,7 +119,7 @@ export default function Details() {
                 value={quantity}
                 onChange={(e) => setQuantity(e.target.value)}
 
-              /> */}
+              />
               <button  style={{ background: "linear-gradient(to right, #FDC830, #F37335)" }}
                 className="btn mx-2 bg-primary " onClick={localStorage.getItem('id')==undefined?()=>navigate('/login'):() => addToCart()}> Add to Cart </button>
               <button  style={{ background: "linear-gradient(to right, #FDC830, #F37335)" }}
