@@ -4,19 +4,20 @@ import React, { useEffect, useState } from 'react';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import Caro from '../components/comProd/Caro';
+import { useSelector } from 'react-redux';
 
 export default function Products() {
   const [products, setProducts] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const search2 = useSelector((state) => state.search);
 
   useEffect(() => {
     getproducts()
-  }, [])
+  }, [search2])
 
   const getproducts = () => {
-    axios.get('https://dummyjson.com/products')
+    axios.get(`https://dummyjson.com/products/search?q=${search2.keyword}`)
       .then((res) => {
-        console.log(res.data);
         setProducts(res.data.products)
         setIsLoading(false)
       })
@@ -26,27 +27,6 @@ export default function Products() {
     <>
       <Nav />
       <Caro />
-
-      {/* the card holder */}
-      {/* <div className='flex flex-wrap justify-center gap-2'> */}
-      {/* {
-          products.map((e) => {
-            return (
-              // card
-              <div key={e.id} className='flex flex-col gap-4 w-40 h-72 justify-center border'>
-                <img className='w-full' src={e.images[0]} alt="" />
-                <span>{e.title}</span>
-                <div className='flex justify-between'>
-                  <span>{e.price}$</span>
-                  <button>detail</button>
-                </div>
-              </div>
-            )
-          })
-        } */}
-
-
-
       <div className='flex flex-wrap justify-center gap-2 '>
         {products.map((e) => {
           return (
