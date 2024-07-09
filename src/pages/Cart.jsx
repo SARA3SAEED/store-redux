@@ -23,17 +23,45 @@ export default function Cart() {
   // functions
   const getProductsAndUser = () => {
     axios
-      .get(
-        `https://665736bb9f970b3b36c86669.mockapi.io/reduxStore/${localStorage.getItem(
-          "id"
-        )}`
-      )
+      .get(`https://665736bb9f970b3b36c86669.mockapi.io/reduxStore/${localStorage.getItem("id")}`)
       .then(function (res) {
         setUser(res.data);
         setProduct(res.data.cart);
         setIsLoading(false);
       });
-  };
+  }
+
+  const decreseQuantity = (quantityValue , thisItem) => {
+
+    const tempObjectHandling = user.cart.find(item => item.id == thisItem.id )
+    const arr = user.cart
+    arr.pop(tempObjectHandling)
+    tempObjectHandling.quantity = parseInt(quantityValue)-1
+    arr.push(tempObjectHandling)
+    setUser({...user , cart:arr})
+    axios.put(`https://665736bb9f970b3b36c86669.mockapi.io/reduxStore/${localStorage.getItem("id")}` , {
+      cart: user.cart
+    }).then(function(){
+      setIsLoading(false)
+    })
+
+  }
+
+  const increaseQuantity = (quantityValue , thisItem) => {
+
+    const tempObjectHandling = user.cart.find(item => item.id == thisItem.id )
+    const arr = user.cart
+    arr.pop(tempObjectHandling)
+    tempObjectHandling.quantity = parseInt(quantityValue)+1
+    arr.push(tempObjectHandling)
+    setUser({...user , cart:arr})
+    axios.put(`https://665736bb9f970b3b36c86669.mockapi.io/reduxStore/${localStorage.getItem("id")}` , {
+      cart: user.cart
+    }).then(function(){
+      setIsLoading(false)
+    })
+
+  }
 
   return (
     !isLoading && (
@@ -54,7 +82,13 @@ export default function Cart() {
               </div>
 
               <h1>{item.item.price}</h1>
-              <h1>{item.quantity}</h1>
+
+              <div className="flex flex-row gap-2 items-center">
+                <button className="w-14 btn" onClick={()=> decreseQuantity(item.quantity , item )}>-</button>
+                <h1>{item.quantity}</h1>
+                <button className="w-14 btn" onClick={()=> increaseQuantity(item.quantity , item )}>+</button>
+              </div>
+              
               <h1>{parseInt(item.quantity) * parseInt(item.item.price)}</h1>
             </div>
           ))}
