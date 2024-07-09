@@ -27,7 +27,7 @@ export default function Details() {
   // functions
   const getProduct = () => {
     axios
-      .get(`https://api.escuelajs.co/api/v1/products/${id}`)
+      .get(`https://dummyjson.com/products/${id}`)
       .then(function (res) {
         setProduct(res.data);
         setIsLoading(false);
@@ -92,105 +92,41 @@ export default function Details() {
 
   return (
     !isLoading && (
-      <div className="flex flex-col min-h-screen w-screen">
+      <div className="flex flex-col  min-h-screen w-full">
         <Nav />
 
-        {/* body container */}
-        <div className="flex flex-row max-sm:flex-col items-center m-auto">
-          {/* right side (Image) */}
-          <img className="w-96" src={product.images} alt={product.title} />
+      <div className="flex justify-center items-center h-full m-auto w-full">
+        <div className="w-3/5 border border-red-300 flex flex-col  justify-center rounded-lg bg-white text-surface shadow-secondary-1 md:flex-row">
+          <img
+            className="w-2/5 rounded-t-lg object-cover md:h-auto  md:!rounded-none md:!rounded-s-lg"
+            src={product.images}
+          />
+          <div className="w-full flex flex-col justify-start p-6 h-96 ml-4">
+            <h5 className="mb-2 text-xl font-medium h-20">
+            {product.title}
+            </h5>
+            <p className="mb-4 text-base h-40">
+            {product.description} </p>
+            <p className="mb-4 text-base">
+            {product.price}$ </p>
 
-          {/* letf side container */}
-          <div className="flex flex-col">
-            {/* Title and category */}
-            <div className="flex flex-row gap-4 items-center">
-              <h1>{product.title}</h1>
-              <p className="p-1 rounded-full text-sm text-zinc-500">
-                {product.category.name}
-              </p>
-            </div>
-
-            {/* description */}
-            <p>{product.description}</p>
-
-            {/* rate */}
-            <div className="flex flex-row gap-4">
-              <div className="flex items-center mt-2.5 mb-5">
-                <div className="flex items-center space-x-1 rtl:space-x-reverse">
-                  <svg
-                    className="w-4 h-4 text-yellow-300"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 22 20"
-                  >
-                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                  </svg>
-                  <svg
-                    className="w-4 h-4 text-yellow-300"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 22 20"
-                  >
-                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                  </svg>
-                  <svg
-                    className="w-4 h-4 text-yellow-300"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 22 20"
-                  >
-                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                  </svg>
-                  <svg
-                    className="w-4 h-4 text-yellow-300"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 22 20"
-                  >
-                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                  </svg>
-                  <svg
-                    className="w-4 h-4 text-gray-200 "
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 22 20"
-                  >
-                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                  </svg>
-                </div>
-                <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded ms-3">
-                  4.0
-                </span>
-              </div>
-            </div>
-
-            {/* Price */}
-            <p>{product.price}$</p>
-
-            {/* Buttons */}
-            <div className="flex flex-row">
-              <input
-                className="w-14 p-1 btn"
+            <p className="text-xs text-surface/75 ">
+            {/* <input
+                className="w-14 p-1 btn bg-primary"
+                style={{ background: "linear-gradient(to right, #FDC830, #F37335)" }}
                 type="number"
                 min={1}
                 value={quantity}
                 onChange={(e) => setQuantity(e.target.value)}
-              />
-
-              <button className="btn" onClick={() => addToCart()}>
-                Add to Cart
-              </button>
-
-              <button className="btn" onClick={() => navigate("/products")}>
-                Back
-              </button>
-            </div>
+              /> */}
+              <button  style={{ background: "linear-gradient(to right, #FDC830, #F37335)" }}
+                className="btn mx-2 bg-primary " onClick={() => addToCart()}> Add to Cart </button>
+              <button  style={{ background: "linear-gradient(to right, #FDC830, #F37335)" }}
+                className="btn mx-2 bg-secondary" onClick={() => navigate("/products")}> Back </button>
+            </p>
           </div>
+          
+        </div>
         </div>
         <ToastContainer />
       </div>

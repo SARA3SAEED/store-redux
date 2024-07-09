@@ -14,10 +14,10 @@ export default function Caro() {
 
     return (
         <>
-        <div className='m-5 mx-16  lg:mx-40 w-[70%]'>
+        <div className='p-5 flex justify-center items-center  w-full'>
         <div
         id="carouselExampleIndicators"
-        className="relative"
+        className="relative w-[68%]"
         data-twe-carousel-init=""
         data-twe-ride="carousel"
         >

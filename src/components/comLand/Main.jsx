@@ -5,7 +5,7 @@ import React from 'react';
 export default function Main() {
   return (
     <>
-      <div className='py-8 px-6 mx-auto max-w-screen-xl bg-white lg:py-16'>
+      <div className='justify-center items-center py-8 px-6 mx-auto max-w-screen-xl bg-white lg:py-16'>
         <div className="grid gap-4">
           <div className=''>
             <img
