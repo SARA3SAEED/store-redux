@@ -18,7 +18,7 @@ export default function Login() {
 
 
   const handelLogin = () => {
-    axios.get('https://665736c59f970b3b36c866df.mockapi.io/reduxStore')
+    axios.get('https://665736bb9f970b3b36c86669.mockapi.io/reduxStore')
       .then(function (res) {
         res.data.map((e) => {
           if (e.userName == userName && e.password == password) {

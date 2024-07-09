@@ -35,14 +35,14 @@ export default function Singup() {
         position: "top-center"
       })
     } else {
-      axios.get('https://665736c59f970b3b36c866df.mockapi.io/reduxStore').then((res) => {
+      axios.get('https://665736bb9f970b3b36c86669.mockapi.io/reduxStore').then((res) => {
         const notNew = res.data.find((e) => { e.email == email })
         if (notNew) {
           toast.error("This Email Have Already Been Used", {
             position: "top-center"
           })
         } else {
-          axios.post('https://665736c59f970b3b36c866df.mockapi.io/reduxStore', newUser).then(
+          axios.post('https://665736bb9f970b3b36c86669.mockapi.io/reduxStore', newUser).then(
             toast.success("You Have Successfully Made An Account", {
               position: "top-center"
             }),
