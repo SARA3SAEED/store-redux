@@ -66,7 +66,7 @@ export default function Singup() {
       <input value={password} onChange={(e) => setPassword(e.target.value)} placeholder='password' type="password" name="" id="" />
       <button onClick={handelPost}>send  </button> */}
 
-      <section className="gradient-form h-screen bg-neutral-200 ">
+      <section className="gradient-form h-screen bg-primary ">
   <div className="container lg:mx-24 h-full p-10">
     <div className="flex h-full flex-wrap items-center justify-center text-neutral-800 ">
       <div className="w-full">

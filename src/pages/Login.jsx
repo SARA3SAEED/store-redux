@@ -49,8 +49,7 @@ export default function Login() {
 
 
 
-      <section className="gradient-form h-screen bg-neutral-200 ">
-
+      <section className="gradient-form h-screen bg-primary ">
         <div className="container lg:mx-24 h-full p-10">
           <div className="flex h-full flex-wrap items-center justify-center text-neutral-800 ">
             <div className="w-full">
@@ -67,7 +66,6 @@ export default function Login() {
                             alt="logo"
                           />
                         </Link>
-
                       <form>
                         {/*Username input*/}
                         <div className="relative mb-4" data-twe-input-wrapper-init="">

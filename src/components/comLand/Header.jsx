@@ -44,7 +44,7 @@ export default function Header() {
           className="lg:w-28 py-3 lg:px-8 inline-flex justify-center items-center  
           sm:ms-4 text-sm font-medium text-gray-900 focus:outline-none 
           bg-white rounded-lg border border-gray-200 hover:bg-gray-100 
-          hover:text-amber-300 focus:z-10 focus:ring-4 focus:ring-gray-100 "
+          hover:text-amber-300 focus:z-10 focus:ring-4 focus:ring-gray-100"
         >
           Log in
         </Link>
