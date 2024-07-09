@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import img55 from '../assets/img55.jpg';
 
@@ -6,7 +7,16 @@ import img55 from '../assets/img55.jpg';
 export default function Nav() {
     const [isCollapsed, setIsCollapsed] = useState(false);
     const toggleCollapse = () => {
-        setIsCollapsed(!isCollapsed);};
+        setIsCollapsed(!isCollapsed)}
+
+    const navigate = useNavigate()
+
+
+    const logout = () => {
+
+        localStorage.clear()
+        navigate('/login')
+    }
     return (
     <>
             {/* Main navigation container */}
@@ -15,7 +25,7 @@ export default function Nav() {
                     background:
                     "linear-gradient(to right, #FDC830, #F37335)"
                   }}
-                className="px-5 rounded relative flex px-1 w-full flex-nowrap items-center 
+                className="px-5 rounded relative flex w-full flex-nowrap items-center 
                 justify-between bg-amber-300  py-2 shadow-dark-mild  lg:flex-wrap lg:justify-start lg:py-4"
                 data-twe-navbar-ref="" >
                 <div className="flex w-full flex-wrap items-center justify-between px-3">
@@ -87,6 +97,10 @@ export default function Nav() {
                         Products
                         </Link>
                     </li>
+                    
+                    {
+                    localStorage.getItem('id')==undefined?
+                    <>
                     <li
                         className="mb-4 ps-2 lg:mb-0 lg:pe-1 lg:ps-0"
                         data-twe-nav-item-ref="" >
@@ -113,6 +127,19 @@ export default function Nav() {
                         Log in
                         </Link>
                     </li>
+                    </>:
+                    <li onClick={()=>document.getElementById('my_modal_1').showModal()}
+                    className="mb-4 ps-2 lg:mb-0 lg:pe-1 lg:ps-0"
+                    data-twe-nav-item-ref="" >
+                    <Link
+                    className="p-0 text-white transition duration-200 hover:text-black/80 hover:ease-in-out 
+                    focus:text-black/80 active:text-black/80 motion-reduce:transition-none 
+                    lg:px-2"
+                    // to="/login"
+                    data-twe-nav-link-ref="" >
+                    Logout
+                    </Link>
+                </li>}
                     {/* Disabled link */}
                     </ul>
                     <div className="lg:w-[500px] lg:pe-2">
@@ -154,6 +181,18 @@ export default function Nav() {
                     </div>
                 </div>
                 </div>
+                <dialog id="my_modal_1" className="modal">
+                <div className="modal-box">
+                    <h3 className="font-bold text-lg">warning!</h3>
+                    <p className="py-4">Are you sure you want to logout?</p>
+                    <div className="modal-action">
+                    <form method="dialog">
+                        <button className="btn btn-primary" onClick={()=>logout()} >Logout</button>
+                        <button className="btn">Close</button>
+                    </form>
+                    </div>
+                </div>
+                </dialog>
             </nav>
     </>
   )

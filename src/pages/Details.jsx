@@ -118,9 +118,10 @@ export default function Details() {
                 min={1}
                 value={quantity}
                 onChange={(e) => setQuantity(e.target.value)}
+
               /> */}
               <button  style={{ background: "linear-gradient(to right, #FDC830, #F37335)" }}
-                className="btn mx-2 bg-primary " onClick={() => addToCart()}> Add to Cart </button>
+                className="btn mx-2 bg-primary " onClick={localStorage.getItem('id')==undefined?()=>navigate('/login'):() => addToCart()}> Add to Cart </button>
               <button  style={{ background: "linear-gradient(to right, #FDC830, #F37335)" }}
                 className="btn mx-2 bg-secondary" onClick={() => navigate("/products")}> Back </button>
             </p>
