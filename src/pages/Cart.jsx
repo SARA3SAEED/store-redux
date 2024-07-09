@@ -67,7 +67,9 @@ export default function Cart() {
     !isLoading && (
       <div className="flex flex-col min-h-screen w-screen">
         <Nav />
-        <div className="flex flex-col items-center m-auto">
+        {user.cart.length==0?
+        <h1>No items in the cart</h1>:
+          <div className="flex flex-col items-center m-auto">
           <div className="grid grid-cols-4 w-full p-4 border">
             <h1>product</h1>
             <h1>price</h1>
@@ -92,7 +94,7 @@ export default function Cart() {
               <h1>{parseInt(item.quantity) * parseInt(item.item.price)}</h1>
             </div>
           ))}
-        </div>
+        </div>}
       </div>
     )
   );

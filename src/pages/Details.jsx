@@ -182,7 +182,7 @@ export default function Details() {
                 onChange={(e) => setQuantity(e.target.value)}
               />
 
-              <button className="btn" onClick={() => addToCart()}>
+              <button className="btn" onClick={localStorage.getItem('id')==undefined?()=>navigate('/login'):() => addToCart()}>
                 Add to Cart
               </button>
 
