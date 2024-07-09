@@ -7,7 +7,8 @@ export default function Feature() {
       <div className="flex flex-col mx-5">
         <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           <div className="flex items-start rounded-xl bg-white p-4 shadow-lg">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full border border-green-100 bg-green-50">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full border 
+            border-green-100 bg-green-50">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6 text-green-400"
@@ -29,7 +30,8 @@ export default function Feature() {
             </div>
           </div>
           <div className="flex items-start rounded-xl bg-white p-4 shadow-lg">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full border border-yellow-100 bg-yellow-50">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full border 
+            border-yellow-100 bg-yellow-50">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6 text-yellow-400"
@@ -51,7 +53,8 @@ export default function Feature() {
             </div>
           </div>
           <div className="flex items-start rounded-xl bg-white p-4 shadow-lg">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full border border-blue-100 bg-blue-50">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full border 
+            border-blue-100 bg-blue-50">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6 text-blue-400"

@@ -5,7 +5,7 @@ export default function Footer() {
     <>
       <>
   {/*Footer container*/}
-  <footer className="flex flex-col items-center bg-zinc-50 text-center text-surface dark:bg-neutral-700 dark:text-white lg:text-left">
+  <footer className="flex flex-col items-center bg-zinc-50 text-center text-surface  lg:text-left">
     <div className="container p-6">
       <div className="grid gap-4 lg:grid-cols-2">
         <div className="mb-6 md:mb-0">
@@ -32,7 +32,9 @@ export default function Footer() {
         <a
           href="#!"
           type="button"
-          className="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:text-white dark:hover:bg-secondary-900"
+          className="rounded-full bg-transparent p-3 font-medium uppercase leading-normal 
+          text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none 
+          focus:ring-0 "
           data-twe-ripple-init=""
         >
           <span className="[&>svg]:h-5 [&>svg]:w-5">
@@ -48,7 +50,8 @@ export default function Footer() {
         <a
           href="#!"
           type="button"
-          className="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:text-white dark:hover:bg-secondary-900"
+          className="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface 
+          transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 "
           data-twe-ripple-init=""
         >
           <span className="mx-auto [&>svg]:h-5 [&>svg]:w-5">
@@ -64,7 +67,8 @@ export default function Footer() {
         <a
           href="#!"
           type="button"
-          className="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:text-white dark:hover:bg-secondary-900"
+          className="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface 
+          transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 "
           data-twe-ripple-init=""
         >
           <span className="mx-auto [&>svg]:h-5 [&>svg]:w-5">
@@ -80,7 +84,8 @@ export default function Footer() {
         <a
           href="#!"
           type="button"
-          className="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:text-white dark:hover:bg-secondary-900"
+          className="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface 
+          transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 "
           data-twe-ripple-init=""
         >
           <span className="mx-auto [&>svg]:h-5 [&>svg]:w-5">
@@ -96,7 +101,8 @@ export default function Footer() {
         <a
           href="#!"
           type="button"
-          className="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:text-white dark:hover:bg-secondary-900"
+          className="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface 
+          transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 "
           data-twe-ripple-init=""
         >
           <span className="mx-auto [&>svg]:h-5 [&>svg]:w-5">
@@ -112,7 +118,8 @@ export default function Footer() {
         <a
           href="#!"
           type="button"
-          className="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:text-white dark:hover:bg-secondary-900"
+          className="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface 
+          transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0"
           data-twe-ripple-init=""
         >
           <span className="mx-auto [&>svg]:h-5 [&>svg]:w-5">
