@@ -72,7 +72,7 @@ export default function Login() {
                           <input
                             type="text"
                             className="peer block min-h-[auto] w-full rounded border-0 
-                            bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none 
+                            bg-primary px-3 py-[0.32rem] leading-[1.6] outline-none 
                             transition-all duration-200 ease-linear focus:placeholder:opacity-100 
                             peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 
                             motion-reduce:transition-none "
@@ -98,7 +98,7 @@ export default function Login() {
                           <input
                             type="password"
                             className="peer block min-h-[auto] w-full rounded border-0 
-                            bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none 
+                            bg-primary px-3 py-[0.32rem] leading-[1.6] outline-none 
                             transition-all duration-200 ease-linear focus:placeholder:opacity-100 
                             peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 
                             motion-reduce:transition-none "
@@ -146,7 +146,7 @@ export default function Login() {
                           <p className="mb-0 me-2">Don't have an account?</p>
                           <Link to="/singup"
                             type="button"
-                            className="inline-block rounded border-2 border-danger px-6 pb-[6px] 
+                            className="inline-block rounded border-2 border-primary px-6 pb-[6px] 
                             pt-2 text-xs font-medium uppercase leading-normal text-danger transition 
                             duration-150 ease-in-out hover:border-danger-600 hover:bg-danger-50/50 
                             hover:text-danger-600 focus:border-danger-600 focus:bg-danger-50/50 
