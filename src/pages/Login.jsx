@@ -50,6 +50,7 @@ export default function Login() {
 
 
       <section className="gradient-form h-screen bg-neutral-200 ">
+
         <div className="container lg:mx-24 h-full p-10">
           <div className="flex h-full flex-wrap items-center justify-center text-neutral-800 ">
             <div className="w-full">
@@ -66,6 +67,7 @@ export default function Login() {
                             alt="logo"
                           />
                         </Link>
+
                       <form>
                         {/*Username input*/}
                         <div className="relative mb-4" data-twe-input-wrapper-init="">
@@ -78,7 +80,7 @@ export default function Login() {
                             motion-reduce:transition-none "
                             id="exampleFormControlInput1"
                             placeholder="Username"
-                            value={userName} 
+                            value={userName}
                             onChange={(e) => setUserName(e.target.value)}
                           />
                           <label
@@ -104,7 +106,7 @@ export default function Login() {
                             motion-reduce:transition-none "
                             id="exampleFormControlInput11"
                             placeholder="Password"
-                            value={password} 
+                            value={password}
                             onChange={(e) => setPassword(e.target.value)}
                           />
                           <label
@@ -133,7 +135,7 @@ export default function Login() {
                             data-twe-ripple-color="light"
                             style={{
                               background:
-                              "linear-gradient(to right, #FDC830, #F37335)"
+                                "linear-gradient(to right, #FDC830, #F37335)"
                             }}
                           >
                             Log in
@@ -167,7 +169,7 @@ export default function Login() {
                     lg:rounded-bl-none"
                     style={{
                       background:
-                      "linear-gradient(to right, #FDC830, #F37335)"
+                        "linear-gradient(to right, #FDC830, #F37335)"
                     }}
                   >
                     <div className="px-4 py-6 text-white md:mx-6 md:p-12">
