@@ -14,9 +14,10 @@ export default function Products() {
   }, [])
 
   const getproducts = () => {
-    axios.get(`https://api.escuelajs.co/api/v1/products`).then((res) => {
+    axios.get('https://dummyjson.com/products')
+    .then((res) => {
       console.log(res.data);
-      setProducts(res.data)
+      setProducts(res.data.products)
       setIsLoading(false)
     })
   }
@@ -46,22 +47,27 @@ export default function Products() {
 
 
 
-      <div className='flex flex-wrap justify-center gap-2 my-7'>
+      <div className='flex flex-wrap justify-center gap-2 '>
         { products.map((e) => { return (
         <div key={e.id} className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
-          <a href="#">
+          <div className='flex justify-center items-center '>
             <img
-              className="p-8 rounded-t-lg"
+              className="p-8 w-52 h-72 rounded-t-lg"
               src={e.images[0]}
               alt="product image"
             />
-          </a>
+          </div>
           <div className="px-5 pb-5">
-            <Link to={'#'}>
+            <div >
               <h5 className="text-xl font-semibold tracking-tight text-gray-900 ">
               {e.title}
               </h5>
-            </Link>
+            </div>
+
+
+
+
+            {/*  rating */}
             <div className="flex items-center mt-2.5 mb-5">
               <div className="flex items-center space-x-1 rtl:space-x-reverse">
                 <svg
@@ -114,6 +120,12 @@ export default function Products() {
                 5.0
               </span>
             </div>
+
+            {/* end rating */}
+
+
+
+            
             <div className="flex items-center justify-between">
               <span className="text-3xl font-bold text-gray-900 ">
               {e.price}$
