@@ -7,16 +7,11 @@ import "react-toastify/dist/ReactToastify.css";
 import Nav from '../components/Nav';
 
 export default function Cart() {
-  // use states
+
   const [product, setProduct] = useState([])
   const [user, setUser] = useState({})
   const [isLoading, setIsLoading] = useState(true)
 
-  // other variles
-
-
-
-  // use effect
 
     useEffect(() => {
       getProductsAndUser()
