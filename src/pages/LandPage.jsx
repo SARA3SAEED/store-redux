@@ -3,13 +3,17 @@ import Nav from '../components/Nav';
 import Footer from '../components/Footer'
 import Header from '../components/comLand/Header';
 import Main from '../components/comLand/Main';
+import Feature from '../components/comLand/Feature';
+import Offer from '../components/comLand/Offer';
 
 export default function LandPage() {
   return (
     <>
             <Nav/>
             <Header />
+            <Feature/>
             <Main />
+            <Offer />
             <Footer />
 
     </>

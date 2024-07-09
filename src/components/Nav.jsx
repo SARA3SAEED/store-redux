@@ -1,30 +1,37 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import img55 from '../assets/img55.jpg';
+
 
 export default function Nav() {
-  return (
+    const [isCollapsed, setIsCollapsed] = useState(false);
+    const toggleCollapse = () => {
+        setIsCollapsed(!isCollapsed);};
+    return (
     <>
             {/* Main navigation container */}
             <nav
-                className="relative flex w-full flex-nowrap items-center justify-between bg-zinc-50 py-2 shadow-dark-mild dark:bg-neutral-700 lg:flex-wrap lg:justify-start lg:py-4"
-                data-twe-navbar-ref=""
-            >
+                 style={{
+                    background:
+                    "linear-gradient(to right, #FDC830, #F37335)"
+                  }}
+                className="px-5 rounded relative flex px-1 w-full flex-nowrap items-center justify-between bg-amber-300  py-2 shadow-dark-mild dark:bg-neutral-700 lg:flex-wrap lg:justify-start lg:py-4"
+                data-twe-navbar-ref="" >
                 <div className="flex w-full flex-wrap items-center justify-between px-3">
                 <div className="ms-2 md:me-2">
-                    <Link className="text-xl text-black dark:text-white" to="#">
-                    Store
+                    <Link to="/" className="text-xl text-amber-600 dark:text-white" >
+                    <img className='rounded-full w-12' src={img55} alt="" />
                     </Link>
                 </div>
                 {/* Hamburger button for mobile view */}
                 <button
-                    className="block border-0 bg-transparent px-2 text-black/50 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
+                    className="block border-0 bg-transparent px-2 text-white hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
                     type="button"
+                    onClick={toggleCollapse}
                     data-twe-collapse-init=""
-                    data-twe-target="#navbarSupportedContent14"
                     aria-controls="navbarSupportedContent14"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
+                    aria-expanded={isCollapsed}
+                    aria-label="Toggle navigation">
                     {/* Hamburger icon */}
                     <span className="[&>svg]:w-7 [&>svg]:stroke-black/50 dark:[&>svg]:stroke-neutral-200">
                     <svg
@@ -42,107 +49,93 @@ export default function Nav() {
                 </button>
                 {/* Collapsible navbar container */}
                 <div
-                    className="!visible mt-2 hidden flex-grow basis-[100%] items-center lg:mt-0 lg:!flex lg:basis-auto"
+                    className={`!visible mt-2 flex-grow basis-[100%] items-center lg:mt-0 lg:!flex lg:basis-auto ${isCollapsed ? 'block' : 'hidden'}`}
                     id="navbarSupportedContent14"
-                    data-twe-collapse-item=""
-                >
+                    data-twe-collapse-item="" >
                     {/* Left links */}
                     <ul
                     className="list-style-none me-auto flex flex-col ps-0 lg:mt-1 lg:flex-row"
-                    data-twe-navbar-nav-ref=""
-                    >
+                    data-twe-navbar-nav-ref="" >
                     {/* Home link */}
                     <li
                         className="my-4 ps-2 lg:my-0 lg:pe-1 lg:ps-2"
-                        data-twe-nav-item-ref=""
-                    >
+                        data-twe-nav-item-ref="">
                         <Link
-                        className="text-black dark:text-white lg:px-2"
+                        className="p-0 text-white transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 lg:px-2"
                         aria-current="page"
                         to="/"
-                        data-twe-nav-link-ref=""
-                        >
+                        data-twe-nav-link-ref="" >
                         Home
                         </Link>
                     </li>
-
-
                     <li
-                        className="my-4 ps-2 lg:my-0 lg:pe-1 lg:ps-2"
-                        data-twe-nav-item-ref=""
-                    >
+                        className="mb-4 ps-2 lg:mb-0 lg:pe-1 lg:ps-0"
+                        data-twe-nav-item-ref="" >
                         <Link
-                        className="text-black dark:text-white lg:px-2"
+                        className="p-0 text-white transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 lg:px-2"
                         aria-current="page"
                         to="/products"
-                        data-twe-nav-link-ref=""
-                        >
+                        data-twe-nav-link-ref="" >
                         Products
                         </Link>
                     </li>
-
-
-
                     <li
-                        className="my-4 ps-2 lg:my-0 lg:pe-1 lg:ps-2"
-                        data-twe-nav-item-ref=""
-                    >
+                        className="mb-4 ps-2 lg:mb-0 lg:pe-1 lg:ps-0"
+                        data-twe-nav-item-ref="" >
                         <Link
-                        className="text-black dark:text-white lg:px-2"
+                        className="p-0 text-white transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 lg:px-2"
                         aria-current="page"
                         to="/singup"
-                        data-twe-nav-link-ref=""
-                        >
+                        data-twe-nav-link-ref="" >
                         Sing up
                         </Link>
                     </li>
-
-
                     {/* Link */}
                     <li
                         className="mb-4 ps-2 lg:mb-0 lg:pe-1 lg:ps-0"
-                        data-twe-nav-item-ref=""
-                    >
+                        data-twe-nav-item-ref="" >
                         <Link
-                        className="p-0 text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 lg:px-2"
+                        className="p-0 text-white transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 lg:px-2"
                         to="/login"
-                        data-twe-nav-link-ref=""
-                        >
+                        data-twe-nav-link-ref="" >
                         Log in
                         </Link>
                     </li>
                     {/* Disabled link */}
-                    <li
-                        className="mb-4 ps-2 lg:mb-0 lg:pe-1 lg:ps-0"
-                        data-twe-nav-item-ref=""
-                    >
-                        <Link
-                        className="p-0 text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 lg:px-2"
-                        to="/cart" 
-                        data-twe-nav-link-ref=""
-                        >
-                            Cart
-                        </Link>
-                    </li>
                     </ul>
-                    <div className="w-[300px] lg:pe-2">
+                    <div className="lg:w-[500px] lg:pe-2">
                     <div className="relative flex w-full flex-wrap items-stretch">
                         <input
                         type="search"
-                        className="relative m-0 -me-0.5 block w-[1px] min-w-0 flex-auto rounded-s border border-solid border-secondary-500 bg-transparent bg-clip-padding px-3 py-1 text-base font-normal leading-[1.6] text-surface outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-gray-700 focus:shadow-inset focus:outline-none motion-reduce:transition-none dark:border-white/10 dark:bg-body-dark dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill"
+                        className="relative m-0 -me-0.5 block w-[1px] min-w-0 flex-auto rounded-s 
+                        border border-solid border-amber-500 bg-transparent bg-clip-padding 
+                        px-3 py-1 text-base font-normal leading-[1.6] text-surface outline-none 
+                        transition duration-200 ease-in-out focus:z-[3] focus:border-base-900 
+                        focus:text-gray-700 focus:shadow-inset focus:outline-none motion-reduce:transition-none 
+                        dark:border-white/10 dark:bg-body-dark dark:text-white placeholder:text-base-300 
+                        dark:autofill:shadow-autofill"
                         placeholder="Search"
                         aria-label="Search"
-                        aria-describedby="button-addon3"
-                        />
+                        aria-describedby="button-addon3" />
                         {/*Search button*/}
                         <button
-                        className="relative z-[2] rounded-e border-2 border-primary px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:border-primary-accent-300 hover:bg-primary-50/50 hover:text-primary-accent-300 focus:border-primary-600 focus:bg-primary-50/50 focus:text-primary-600 focus:outline-none focus:ring-0 active:border-primary-700 active:text-primary-700 motion-reduce:transition-none dark:text-primary-500 dark:hover:bg-blue-950 dark:focus:bg-blue-950"
+                        className="relative z-[2] rounded border-2 border-amber-600 px-6 pb-[6px] pt-2 text-xs font-medium 
+                        uppercase leading-normal text-white transition duration-150 ease-in-out hover:border-primary-accent-300 
+                        hover:bg-base-500 hover:text-primary-accent-300 focus:border-primary-600 focus:bg-primary-50/50 
+                        focus:text-primary-600 focus:outline-none focus:ring-0 active:border-primary-700 active:text-primary-700 
+                        motion-reduce:transition-none dark:text-primary-500 dark:hover:bg-blue-950 dark:focus:bg-blue-950"
                         type="button"
                         id="button-addon3"
-                        data-twe-ripple-init=""
-                        >
+                        data-twe-ripple-init="" >
                         Search
                         </button>
+                        <Link
+                        className="p-0 text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 lg:px-2"
+                        to="/cart" >
+                        <img 
+                            className='mx-3 mt-2 w-6 h-6' 
+                            src='https://img.icons8.com/?size=160&id=hqh6JRLqKxt0&format=png'/>
+                        </Link>
                     </div>
                     </div>
                 </div>
