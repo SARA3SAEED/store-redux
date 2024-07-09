@@ -1,5 +1,5 @@
 import React from 'react';
-import img44 from '/Users/msaee/OneDrive/Desktop/store-redux/store/src/assets/img44.jpg';
+import img44 from '../../assets/img44.jpg';
 
 
 
@@ -7,51 +7,51 @@ export default function Main() {
   return (
     <>
       <div className='py-8 px-6 mx-auto max-w-screen-xl lg:py-16'>
-      <div className="grid gap-4">
-        <div className=''>
-          <img
-            className="lg:h-[500px] lg:w-[100%] rounded-lg"
-            src="https://t4.ftcdn.net/jpg/07/04/35/11/360_F_704351155_9nuMDCxI00qsQK7g2OJZogVPYzLx2dSM.jpg" />
-        </div>
-        <div className="grid grid-cols-5 gap-4">
-          <div>
+        <div className="grid gap-4">
+          <div className=''>
             <img
-              className="h-auto max-w-full rounded-lg"
-              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
-              alt=""
-            />
+              className="lg:h-[500px] lg:w-[100%] rounded-lg"
+              src="https://t4.ftcdn.net/jpg/07/04/35/11/360_F_704351155_9nuMDCxI00qsQK7g2OJZogVPYzLx2dSM.jpg" />
           </div>
-          <div>
-            <img
-              className="h-auto max-w-full rounded-lg"
-              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              className="h-auto max-w-full rounded-lg"
-              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              className="h-auto max-w-full rounded-lg"
-              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              className="h-auto max-w-full rounded-lg"
-              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg"
-              alt=""
-            />
+          <div className="grid grid-cols-5 gap-4">
+            <div>
+              <img
+                className="h-auto max-w-full rounded-lg"
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
+                alt=""
+              />
+            </div>
+            <div>
+              <img
+                className="h-auto max-w-full rounded-lg"
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
+                alt=""
+              />
+            </div>
+            <div>
+              <img
+                className="h-auto max-w-full rounded-lg"
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
+                alt=""
+              />
+            </div>
+            <div>
+              <img
+                className="h-auto max-w-full rounded-lg"
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg"
+                alt=""
+              />
+            </div>
+            <div>
+              <img
+                className="h-auto max-w-full rounded-lg"
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg"
+                alt=""
+              />
+            </div>
           </div>
         </div>
       </div>
-      </div>
 
 
 
@@ -60,9 +60,9 @@ export default function Main() {
 
 
 
-      
-  {/* component */}
-  {/* <section className="bg-white dark:bg-gray-900">
+
+      {/* component */}
+      {/* <section className="bg-white dark:bg-gray-900">
     <div className="container px-6 py-10 mx-auto">
       <h1 className="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">
         explore our <br /> awesome{" "}
@@ -247,6 +247,6 @@ export default function Main() {
       </div>
     </div>
   </div> */}
-  </>
+    </>
   )
 }
