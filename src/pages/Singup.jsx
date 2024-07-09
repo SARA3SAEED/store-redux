@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
@@ -7,6 +8,9 @@ export default function Singup() {
   const [userName, setUserName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
+  const navigate = useNavigate()
+
 
   const handelPost = () => {
     //object Containning the new user
@@ -41,7 +45,12 @@ export default function Singup() {
           })
         } else {
           //if not used make a post req and send the object we create before
-          axios.post('https://665736c59f970b3b36c866df.mockapi.io/reduxStore', newUser)
+          axios.post('https://665736c59f970b3b36c866df.mockapi.io/reduxStore', newUser).then(
+            toast.success("You Have Successfully Made An Account", {
+              position: "top-center"
+            }),
+            navigate('../login')
+          )
         }
       })
     }
