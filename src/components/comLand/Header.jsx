@@ -5,7 +5,7 @@ import img from '../../assets/landpage.jpg';
 export default function Header() {
   return (
     <>
-  <section className="bg-white ">
+  <section className="bg-white ml-5">
   <div className=" px-6 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
     <div className="flex flex-col justify-center">
       <h1 className="mt-14 mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 
@@ -39,15 +39,7 @@ export default function Header() {
             />
           </svg>
         </Link>
-        <Link
-          to="/login"
-          className="lg:w-28 py-3 lg:px-8 inline-flex justify-center items-center  
-          sm:ms-4 text-sm font-medium text-gray-900 focus:outline-none 
-          bg-white rounded-lg border border-gray-200 hover:bg-gray-100 
-          hover:text-amber-300 focus:z-10 focus:ring-4 focus:ring-gray-100"
-        >
-          Log in
-        </Link>
+      
       </div>
     </div>
     <div>

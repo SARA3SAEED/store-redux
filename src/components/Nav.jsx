@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -62,87 +63,10 @@ export default function Nav() {
                 </button>
                 {/* Collapsible navbar container */}
                 <div
-                    className={`!visible mt-2 flex-grow basis-[100%] items-center 
-                        lg:mt-0 lg:!flex lg:basis-auto ${isCollapsed ? 'block' : 'hidden'}`}
+                    className={`!visible mt-2  ml-4 lg:flex basis-[100%] items-center justify-end lg:mt-0 lg:basis-auto ${isCollapsed ? 'block' : 'hidden'}`}
                     id="navbarSupportedContent14"
                     data-twe-collapse-item="" >
-                    {/* Left links */}
-                    <ul
-                    className="list-style-none me-auto flex flex-col ps-0 lg:mt-1 lg:flex-row"
-                    data-twe-navbar-nav-ref="" >
-                    {/* Home link */}
-                    {/* <li
-                        className="my-4 ps-2 lg:my-0 lg:pe-1 lg:ps-2"
-                        data-twe-nav-item-ref="">
-                        <Link
-                        className="p-0 text-white transition duration-200 hover:text-black/80 
-                        hover:ease-in-out focus:text-black/80 active:text-black/80 
-                        motion-reduce:transition-none  lg:px-2"
-                        aria-current="page"
-                        to="/"
-                        data-twe-nav-link-ref="" >
-                        Home
-                        </Link>
-                    </li> */}
-                    <li
-                        className="mb-4 ps-2 lg:mb-0 lg:pe-1 lg:ps-0"
-                        data-twe-nav-item-ref="" >
-                        <Link
-                        className="p-0 text-white transition duration-200 hover:text-black/80 
-                        hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none 
-                        lg:px-2"
-                        aria-current="page"
-                        to="/products"
-                        data-twe-nav-link-ref="" >
-                        Products
-                        </Link>
-                    </li>
-                    
-                    {
-                    localStorage.getItem('id')==undefined?
-                    <>
-                    <li
-                        className="mb-4 ps-2 lg:mb-0 lg:pe-1 lg:ps-0"
-                        data-twe-nav-item-ref="" >
-                        <Link
-                        className="p-0 text-white transition duration-200 hover:text-black/80 
-                        hover:ease-in-out focus:text-black/80 active:text-black/80 
-                        motion-reduce:transition-none  lg:px-2"
-                        aria-current="page"
-                        to="/singup"
-                        data-twe-nav-link-ref="" >
-                        Sing up
-                        </Link>
-                    </li>
-                    {/* Link */}
-                    <li
-                        className="mb-4 ps-2 lg:mb-0 lg:pe-1 lg:ps-0"
-                        data-twe-nav-item-ref="" >
-                        <Link
-                        className="p-0 text-white transition duration-200 hover:text-black/80 hover:ease-in-out 
-                        focus:text-black/80 active:text-black/80 motion-reduce:transition-none 
-                        lg:px-2"
-                        to="/login"
-                        data-twe-nav-link-ref="" >
-                        Log in
-                        </Link>
-                    </li>
-                    </>:
-                    <li onClick={()=>document.getElementById('my_modal_1').showModal()}
-                    className="mb-4 ps-2 lg:mb-0 lg:pe-1 lg:ps-0"
-                    data-twe-nav-item-ref="" >
-                    <Link
-                    className="p-0 text-white transition duration-200 hover:text-black/80 hover:ease-in-out 
-                    focus:text-black/80 active:text-black/80 motion-reduce:transition-none 
-                    lg:px-2"
-                    // to="/login"
-                    data-twe-nav-link-ref="" >
-                    Logout
-                    </Link>
-                </li>}
-                    {/* Disabled link */}
-                    </ul>
-                    <div className="lg:w-[500px] lg:pe-2">
+                    <div className="lg:w-[500px] lg:pe-2 items-center">
                     <div className="relative flex w-full flex-wrap items-stretch">
                         <input
                         type="search"
@@ -173,14 +97,79 @@ export default function Nav() {
                         hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none 
                         lg:px-2"
                         to="/cart" >
-                        <img 
-                            className='mx-3 mt-2 w-6 h-6' 
-                            src='https://img.icons8.com/?size=160&id=hqh6JRLqKxt0&format=png'/>
+                        <img className='mx-3 mt-2 w-6 h-6' src='https://img.icons8.com/?size=160&id=hqh6JRLqKxt0&format=png'/>
                         </Link>
                     </div>
                     </div>
+
+
+                    {/* Left links */}
+                    <ul
+                    className="list-style-none me-auto flex ps-0 lg:mt-1 lg:flex-row"
+                    data-twe-navbar-nav-ref="" >
+                    <li
+                        className="w-20 text-center border border-amber-300 p-3 mb-4 rounded lg:mx-1 ps-2 mr-1 mt-1 lg:ml-4 lg:mb-0 lg:pe-1 lg:ps-0"
+                        data-twe-nav-item-ref="" >
+                        <Link
+                        className="p-0 text-white transition duration-200 hover:text-black/80 
+                        hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none 
+                        lg:px-2"
+                        aria-current="page"
+                        to="/products"
+                        data-twe-nav-link-ref="" >
+                        Products
+                        </Link>
+                    </li>
+                    
+                    {
+                    localStorage.getItem('id')==undefined?
+                    <>
+                    <li
+                        className="w-20 text-center border bg-amber-500 p-3 mb-4 rounded lg:mx-1 ps-2 mr-1 mt-1 lg:ml-4  lg:mb-0 lg:pe-1 lg:ps-0"
+                        data-twe-nav-item-ref="" >
+                        <Link
+                        className="p-0 text-white transition duration-200 hover:text-black/80 
+                        hover:ease-in-out focus:text-black/80 active:text-black/80 
+                        motion-reduce:transition-none  lg:px-2"
+                        aria-current="page"
+                        to="/singup"
+                        data-twe-nav-link-ref="" >
+                        Sing up
+                        </Link>
+                    </li>
+                    {/* Link */}
+                    <li
+                        className="w-20 text-center border bg-amber-600 p-3 mb-4 rounded lg:mx-1 ps-2 mr-1 mt-1 lg:ml-4 lg:mb-0 lg:pe-1 lg:ps-0"
+                        data-twe-nav-item-ref="" >
+                        <Link
+                        className="p-0 text-white transition duration-200 hover:text-black/80 hover:ease-in-out 
+                        focus:text-black/80 active:text-black/80 motion-reduce:transition-none 
+                        lg:px-2"
+                        to="/login"
+                        data-twe-nav-link-ref="" >
+                        Log in
+                        </Link>
+                    </li>
+                    </>:
+                    <li onClick={()=>document.getElementById('my_modal_1').showModal()}
+                    className="btn bg-secondary hover:bg-white w-20 p-3 mb-4 rounded lg:mx-1 ps-2 mr-1 mt-1 lg:ml-4  lg:mb-0 lg:pe-1 lg:ps-0"
+                    data-twe-nav-item-ref="" >
+                    <Link
+                    className="p-0 text-white transition duration-200 hover:text-black/80 hover:ease-in-out 
+                    focus:text-black/80 active:text-black/80 motion-reduce:transition-none 
+                    lg:px-2"
+                    // to="/login"
+                    data-twe-nav-link-ref="" >
+                    Logout
+                    </Link>
+                </li>}
+                    {/* Disabled link */}
+                    </ul>
                 </div>
                 </div>
+
+
+
                 <dialog id="my_modal_1" className="modal">
                 <div className="modal-box">
                     <h3 className="font-bold text-lg">warning!</h3>
@@ -193,7 +182,15 @@ export default function Nav() {
                     </div>
                 </div>
                 </dialog>
+
+
+
+
             </nav>
     </>
   )
 }
+
+
+
+

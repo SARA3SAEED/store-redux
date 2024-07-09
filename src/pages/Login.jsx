@@ -49,9 +49,9 @@ export default function Login() {
 
 
 
-      <section className="flex justify-center gradient-form h-screen bg-primary ">
+      <section className="flex justify-center gradient-form h-screen bg-base-100 ">
       <ToastContainer stacked />
-        <div className="container  h-full p-2">
+        <div className="container w-[85%]  h-full p-2">
           <div className="flex h-full flex-wrap items-center justify-center text-neutral-800 ">
             <div className="w-full">
               <div className="block rounded-lg bg-white shadow-lg ">
@@ -176,11 +176,8 @@ export default function Login() {
                         We are more than just a company
                       </h4>
                       <p className="text-sm">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                        do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat.
-                      </p>
+                      Our store offers a wide variety of products from top brands at competitive prices.
+                      We are committed to ensuring you have a seamless shopping experience from start to finish.                      </p>
                     </div>
                   </div>
                 </div>
