@@ -120,7 +120,7 @@ export default function Nav() {
                         <input
                         type="search"
                         className="relative m-0 -me-0.5 block w-[1px] min-w-0 flex-auto rounded-s 
-                        border border-solid border-amber-500 bg-transparent bg-clip-padding 
+                        border border-solid border-white bg-transparent bg-clip-padding 
                         px-3 py-1 text-base font-normal leading-[1.6] text-surface outline-none 
                         transition duration-200 ease-in-out focus:z-[3] focus:border-base-900 
                         focus:text-gray-700 focus:shadow-inset focus:outline-none motion-reduce:transition-none 
@@ -131,8 +131,8 @@ export default function Nav() {
                         aria-describedby="button-addon3" />
                         {/*Search button*/}
                         <button
-                        className="relative z-[2] rounded border-2 border-amber-600 px-6 pb-[6px] pt-2 text-xs font-medium 
-                        uppercase leading-normal text-white transition duration-150 ease-in-out hover:border-primary-accent-300 
+                        className="relative z-[2] rounded border border-white px-6 pb-[6px] pt-2 text-xs font-medium 
+                        uppercase leading-normal text-amber-700 transition duration-150 ease-in-out hover:border-primary-accent-300 
                         hover:bg-base-500 hover:text-primary-accent-300 focus:border-primary-600 focus:bg-primary-50/50 
                         focus:text-primary-600 focus:outline-none focus:ring-0 active:border-primary-700 active:text-primary-700 
                         motion-reduce:transition-none "

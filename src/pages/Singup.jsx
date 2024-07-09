@@ -60,14 +60,14 @@ export default function Singup() {
   return (
     <>
       {/* toast */}
-      <ToastContainer stacked />
       {/* <input value={userName} onChange={(e) => setUserName(e.target.value)} placeholder='text' type="text" name="" id="" />
       <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder='email' type="email" name="" id="" />
       <input value={password} onChange={(e) => setPassword(e.target.value)} placeholder='password' type="password" name="" id="" />
       <button onClick={handelPost}>send  </button> */}
 
-      <section className="gradient-form h-screen bg-primary ">
-  <div className="container lg:mx-24 h-full p-10">
+  <section className="flex justify-center gradient-form h-screen bg-primary ">
+  <ToastContainer stacked />
+  <div className="container  h-full p-2">
     <div className="flex h-full flex-wrap items-center justify-center text-neutral-800 ">
       <div className="w-full">
         <div className="block rounded-lg bg-white shadow-lg ">
@@ -88,7 +88,7 @@ export default function Singup() {
                   <div className="relative mb-4" data-twe-input-wrapper-init="">
                     <input
                       type="text"
-                      className="peer block min-h-[auto] w-full rounded border-0 bg-primary px-3 
+                      className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 
                       py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear 
                       focus:placeholder:opacity-100 peer-focus:text-primary 
                       data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none "

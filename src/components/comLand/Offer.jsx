@@ -28,7 +28,7 @@ export default function Offer() {
             d="M5.75 12.8665L8.33995 16.4138C9.15171 17.5256 10.8179 17.504 11.6006 16.3715L18.25 6.75"
           />
         </svg>
-        10k Items/mo
+        10 Items/mo
         </div>
       <div className="flex items-center mb-2">
         <svg
@@ -67,7 +67,7 @@ export default function Offer() {
         Unlimited Purchases      
         </div>
       <div className="mt-auto w-full">
-        <button className="bg-white rounded-xl cursor-pointer text-white py-2 border-none w-full flex items-center px-3">
+        <button className="bg-amber-300 rounded-xl cursor-pointer text-white py-2 border-none w-full flex items-center px-3">
           Get Free
           <svg
             className="ml-auto"
@@ -93,7 +93,6 @@ export default function Offer() {
           </svg>
         </button>
         <div className="text-xs mt-3 text-slate-600 line-height-2">
-          Literally you probably haven't heard of them jean shorts.
         </div>
       </div>
     </div>
@@ -121,7 +120,7 @@ export default function Offer() {
             d="M5.75 12.8665L8.33995 16.4138C9.15171 17.5256 10.8179 17.504 11.6006 16.3715L18.25 6.75"
           />
         </svg>
-        20k Items/mo
+        20 Items/mo
         </div>
       <div className="flex items-center mb-2">
         <svg
@@ -222,7 +221,6 @@ export default function Offer() {
           </svg>
         </Link>
         <div className="text-xs mt-3 text-slate-600 line-height-2">
-          Literally you probably haven't heard of them jean shorts.
         </div>
       </div>
     </div>
@@ -289,7 +287,7 @@ export default function Offer() {
         Unlimited Purchases
         </div>
       <div className="mt-auto w-full">
-        <button className="bg-white rounded-xl cursor-pointer text-white py-2 border-none w-full flex items-center px-3">
+        <button className="bg-amber-300 rounded-xl cursor-pointer text-white py-2 border-none w-full flex items-center px-3">
         Premium Support
         <svg
             className="ml-auto"
@@ -315,7 +313,6 @@ export default function Offer() {
           </svg>
         </button>
         <div className="text-xs mt-3 text-slate-600 line-height-2">
-          Literally you probably haven't heard of them jean shorts.
         </div>
       </div>
     </div>

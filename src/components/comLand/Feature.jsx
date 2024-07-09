@@ -4,8 +4,8 @@ export default function Feature() {
   return (
     <>
       {/* component */}
-      <div className="flex flex-col mx-5">
-        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="flex flex-col bg-white items-center justify-center ">
+        <div className="mt-4 flex  max-sm:flex-col max-sm:gap-4 mx-2 gap-14  items-center justify-center">
           <div className="flex items-start rounded-xl bg-white p-4 shadow-lg">
             <div className="flex h-12 w-12 items-center justify-center rounded-full border 
             border-green-100 bg-green-50">
