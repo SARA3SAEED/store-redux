@@ -10,9 +10,11 @@ export default function LandPage() {
   return (
     <>
             <Nav/>
+            <div className='bg-white'>
             <Header />
             <Feature/>
             <Main />
+            </div>
             <Offer />
             <Footer />
 
