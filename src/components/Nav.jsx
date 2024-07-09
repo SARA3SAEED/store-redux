@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -51,6 +52,7 @@ export default function Nav() {
                         className="block border-0 bg-transparent px-2 text-white 
                     hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none 
                     focus:outline-none focus:ring-0  lg:hidden"
+
                         type="button"
                         onClick={toggleCollapse}
                         data-twe-collapse-init=""
@@ -196,7 +198,11 @@ export default function Nav() {
                             </div>
                         </div>
                     </div>
+
                 </div>
+
+
+
                 <dialog id="my_modal_1" className="modal">
                     <div className="modal-box">
                         <h3 className="font-bold text-lg">warning!</h3>
@@ -209,7 +215,15 @@ export default function Nav() {
                         </div>
                     </div>
                 </dialog>
+
+
+
+
             </nav>
         </>
     )
 }
+
+
+
+

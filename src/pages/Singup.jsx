@@ -70,15 +70,11 @@ export default function Singup() {
 
   return (
     <>
-      {/* toast */}
-      {/* <input value={userName} onChange={(e) => setUserName(e.target.value)} placeholder='text' type="text" name="" id="" />
-      <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder='email' type="email" name="" id="" />
-      <input value={password} onChange={(e) => setPassword(e.target.value)} placeholder='password' type="password" name="" id="" />
-      <button onClick={handelPost}>send  </button> */}
+   
 
-      <section className="flex justify-center gradient-form h-screen bg-primary ">
+      <section className="flex justify-center gradient-form h-screen bg-base-100 ">
         <ToastContainer stacked />
-        <div className="container  h-full p-2">
+        <div className="container w-[85%]  h-full p-2">
           <div className="flex h-full flex-wrap items-center justify-center text-neutral-800 ">
             <div className="w-full">
               <div className="block rounded-lg bg-white shadow-lg ">
@@ -103,9 +99,9 @@ export default function Singup() {
                           <input
                             type="text"
                             className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 
-                      py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear 
-                      focus:placeholder:opacity-100 peer-focus:text-primary 
-                      data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none "
+                            py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear 
+                            focus:placeholder:opacity-100 peer-focus:text-primary 
+                            data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none "
                             id="exampleFormControlInput1"
                             placeholder="Username"
                             value={userName}
@@ -233,11 +229,8 @@ export default function Singup() {
                         We are more than just a company
                       </h4>
                       <p className="text-sm">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Ut enim ad minim veniam, quis
-                        nostrud exercitation ullamco laboris nisi ut aliquip ex
-                        ea commodo consequat.
+                      Our store offers a wide variety of products from top brands at competitive prices.
+                      We are committed to ensuring you have a seamless shopping experience from start to finish.
                       </p>
                     </div>
                   </div>
