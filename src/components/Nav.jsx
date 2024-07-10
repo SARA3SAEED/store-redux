@@ -206,7 +206,7 @@ export default function Nav() {
                     <p className="py-4">Are you sure you want to logout?</p>
                     <div className="modal-action">
                     <form method="dialog">
-                        <button className="btn btn-primary" onClick={()=>logout()} >Logout</button>
+                        <button className="btn btn-primary mx-2" onClick={()=>logout()} >Logout</button>
                         <button className="btn">Close</button>
                     </form>
                     </div>

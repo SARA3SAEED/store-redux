@@ -89,7 +89,7 @@ export default function Cart() {
             <h2 className="text-xl font-bold text-gray-900  hover:underline " >
             Price </h2>
             <h2 className="text-xl font-bold text-gray-900  hover:underline " >
-              Guantity </h2>
+              Quantity </h2>
             <h2 className="text-xl font-bold text-gray-900  hover:underline " >
               Total</h2>
           </div>
@@ -109,13 +109,13 @@ export default function Cart() {
                     {item.item.title}
                     </p>
                     </div>
-                    <p className=" inline-flex items-center justify-center text-base font-semibold text-gray-900 dark:text-white">
+                    <p className=" inline-flex items-center justify-center text-base font-semibold text-gray-900 ">
                     {item.item.price}
                     </p>
 
                     <div className="flex ">
                     <button className="w-4 h-6 mt-2  lg:w-8 lg:h-8 border border-gray-300" onClick={()=> decreseQuantity(item.quantity , item )}>-</button>
-                    <p className="m-2 lg:mt-3 inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                    <p className="m-2 lg:mt-3 inline-flex items-center text-base font-semibold text-gray-900 ">
                     {item.quantity}
                     </p>
                     <button className="w-4 h-6 mt-2 lg:w-8 lg:h-8 border border-gray-300" onClick={()=> increaseQuantity(item.quantity , item )}>+</button>
