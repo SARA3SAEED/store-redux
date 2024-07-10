@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
-import Caro from '../components/comProd/Caro';
 import { useSelector } from 'react-redux';
 
 export default function Products() {
@@ -26,8 +25,7 @@ export default function Products() {
   return (!isLoading &&
     <>
       <Nav />
-      <Caro />
-      <div className='flex flex-wrap justify-center gap-2 '>
+      <div className='flex flex-wrap justify-center gap-2 mt-5 '>
         {products.map((e) => {
           return (
             <div key={e.id} className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
