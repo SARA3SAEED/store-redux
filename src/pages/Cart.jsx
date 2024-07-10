@@ -10,6 +10,7 @@ export default function Cart() {
   const [product, setProduct] = useState([]);
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [itemToDelete, setItemToDelete] = useState({})
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -54,14 +55,23 @@ export default function Cart() {
   }
 
   const handleClick = (thisItem) => {
-    const arr = user.cart.filter(item => item.id !== thisItem.id)
+    setItemToDelete(thisItem)
+    console.log(thisItem)
+    document.getElementById('my_modal_2').showModal()
+  }
+
+  const deleteThisItem = () => {
+    console.log(itemToDelete)
+    const arr = user.cart.filter(item => item.id !== itemToDelete.id)
     setUser({...user , cart:arr})
-    console.log(arr);
+    console.log(arr)
     axios.put(`https://665736bb9f970b3b36c86669.mockapi.io/reduxStore/${localStorage.getItem("id")}` , {
       cart: arr
     }).then(function(res){
-      console.log(res.data);
       setIsLoading(false)
+      toast.success("Item deleted succsufuly!", {
+        position: "top-center",
+      })
     })
   }
 
@@ -157,6 +167,19 @@ export default function Cart() {
                           </button>
                           </div>
           </div>}
+          <dialog id="my_modal_2" className="modal">
+          <div className="modal-box">
+              <h3 className="font-bold text-lg">Warrning</h3>
+              <p className="py-4">Are you sure you want to delete this item?</p>
+              <div className="modal-action">
+              <form method="dialog">
+                  <button className="btn btn-neutral mr-2" onClick={()=>deleteThisItem()} >Delete</button>
+                  <button className="btn">Close</button>
+              </form>
+              </div>
+          </div>
+          </dialog>
+          <ToastContainer />
       </div>
     )
   );

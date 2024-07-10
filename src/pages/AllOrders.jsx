@@ -30,11 +30,12 @@ function AllOrders() {
             {
                 user.oldShipments.map( items =>
                     
-                    <div className="collapse bg-base-200" key={items.id} >
+                    <div className="collapse collapse-arrow bg-base-200" key={items.id} >
                     <input type="checkbox" />
-                    <div className="collapse-title text-xl font-medium flex flex-row justify-between">
+                    <div className="collapse-title text-xl font-medium flex flex-row max-sm:flex-col max-sm:gap-2 justify-between">
                         <h1>Order-No. {items.shipmentId}</h1>
-                        <h1>{items.total.toFixed(2)}$</h1>
+                        <h1>Orded on: {items.date.slice(0,10)}</h1>
+                        <h1>Total: {items.total.toFixed(2)}$</h1>
                     </div>
 
                     <div className="collapse-content" >

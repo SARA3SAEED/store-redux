@@ -77,7 +77,7 @@ export default function Pay() {
 
         {/* Billing address form */}
 
-// <<<<<<< fatimah
+{/* 
 //         <div className='flex flex-col gap-2 w-2/3 max-sm:w-full items-start justify-center p-2'>
 //           <h1>Billing address</h1>
             
@@ -151,8 +151,9 @@ export default function Pay() {
 //           </div>
 
 
-//         </div>
-//======
+//         </div> */}
+
+
   <form className="w-[66%] my-8 border border-gray-300 rounded p-8">
   <div className="relative z-0 w-full mb-5 group">
     <input
