@@ -95,39 +95,39 @@ export default function Details() {
       <div className="flex flex-col  min-h-screen w-full">
         <Nav />
 
-      <div className="flex justify-center items-center h-full m-auto w-full">
-        <div className="w-3/5 border border-red-300 flex flex-col  justify-center rounded-lg bg-white text-surface shadow-secondary-1 md:flex-row">
-          <img
-            className="w-2/5 rounded-t-lg object-cover md:h-auto  md:!rounded-none md:!rounded-s-lg"
-            src={product.images}
-          />
-          <div className="w-full flex flex-col justify-start p-6 h-96 ml-4">
-            <h5 className="mb-2 text-xl font-medium h-20">
-            {product.title}
-            </h5>
-            <p className="mb-4 text-base h-40">
-            {product.description} </p>
-            <p className="mb-4 text-base">
-            {product.price}$ </p>
+        <div className="flex justify-center items-center h-full m-auto w-full">
+          <div className="w-3/5 border border-red-300 flex flex-col  justify-center rounded-lg bg-white text-surface shadow-secondary-1 md:flex-row">
+            <img
+              className="w-2/5 rounded-t-lg object-cover md:h-auto  md:!rounded-none md:!rounded-s-lg"
+              src={product.images[0]}
+            />
+            <div className="w-full flex flex-col justify-start p-6 h-96 ml-4">
+              <h5 className="mb-2 text-xl font-medium h-20">
+                {product.title}
+              </h5>
+              <p className="mb-4 text-base h-40">
+                {product.description} </p>
+              <p className="mb-4 text-base">
+                {product.price}$ </p>
 
-            <p className="text-xs text-surface/75 ">
-            <input
-                className="w-14 p-1 btn bg-primary"
-                style={{ background: "linear-gradient(to right, #FDC830, #F37335)" }}
-                type="number"
-                min={1}
-                value={quantity}
-                onChange={(e) => setQuantity(e.target.value)}
+              <p className="text-xs text-surface/75 ">
+                <input
+                  className="w-14 p-1 btn bg-primary"
+                  style={{ background: "linear-gradient(to right, #FDC830, #F37335)" }}
+                  type="number"
+                  min={1}
+                  value={quantity}
+                  onChange={(e) => setQuantity(e.target.value)}
 
-              />
-              <button  style={{ background: "linear-gradient(to right, #FDC830, #F37335)" }}
-                className="btn mx-2 bg-primary " onClick={localStorage.getItem('id')==undefined?()=>navigate('/login'):() => addToCart()}> Add to Cart </button>
-              <button  style={{ background: "linear-gradient(to right, #FDC830, #F37335)" }}
-                className="btn mx-2 bg-secondary" onClick={() => navigate("/products")}> Back </button>
-            </p>
+                />
+                <button style={{ background: "linear-gradient(to right, #FDC830, #F37335)" }}
+                  className="btn mx-2 bg-primary " onClick={localStorage.getItem('id') == undefined ? () => navigate('/login') : () => addToCart()}> Add to Cart </button>
+                <button style={{ background: "linear-gradient(to right, #FDC830, #F37335)" }}
+                  className="btn mx-2 bg-secondary" onClick={() => navigate("/products")}> Back </button>
+              </p>
+            </div>
+
           </div>
-          
-        </div>
         </div>
         <ToastContainer />
       </div>
