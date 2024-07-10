@@ -42,8 +42,8 @@ export default function Details() {
       )
       .then(function (res) {
         setUser(res.data);
-      });
-  };
+      })
+  }
 
   const addToCart = () => {
     const arr = user.cart;
