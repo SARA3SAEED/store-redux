@@ -29,39 +29,28 @@ export default function Cart() {
       });
   }
 
-  const decreseQuantity = (quantityValue , thisItem , id) => {
-    console.log(user.cart);
-    // const tempObjectHandling = user.cart.find(item => item.id == id )
-    const arr = user.cart
-    console.log(arr);
-    arr.pop(thisItem)
-    console.log(arr);
+  const decreseQuantity = (quantityValue , thisItem ) => {
+    if(quantityValue>1) {
+    const arr = user.cart.filter(item => item.id!==thisItem.id)
     thisItem.quantity = parseInt(quantityValue)-1
-    arr.push(thisItem)
-    setUser({...user , cart:arr})
-    console.log(arr);
+      arr.push(thisItem)
+
     setUser({...user , cart:arr})
     axios.put(`https://665736bb9f970b3b36c86669.mockapi.io/reduxStore/${localStorage.getItem("id")}` , {
-      cart: user.cart
+      cart: arr
     }).then(function(){
       setIsLoading(false)
     })
-
+   } 
   }
 
-  const increaseQuantity = (quantityValue , thisItem , id) => {
-    console.log(user.cart);
-    // const tempObjectHandling = user.cart.find(item => item.id == id )
-    const arr = user.cart
-    console.log(arr);
-    arr.pop(thisItem)
-    console.log(arr);
+  const increaseQuantity = (quantityValue , thisItem ) => {
+    const arr = user.cart.filter(item => item.id !== thisItem.id)
     thisItem.quantity = parseInt(quantityValue)+1
     arr.push(thisItem)
     setUser({...user , cart:arr})
-    console.log(arr);
     axios.put(`https://665736bb9f970b3b36c86669.mockapi.io/reduxStore/${localStorage.getItem("id")}` , {
-      cart: user.cart
+      cart: arr
     }).then(function(){
       setIsLoading(false)
     })
@@ -69,12 +58,13 @@ export default function Cart() {
   }
 
   const handleClick = (thisItem) => {
-    const arr = user.cart
-    arr.pop(thisItem)
+    const arr = user.cart.filter(item => item.id !== thisItem.id)
     setUser({...user , cart:arr})
+    console.log(arr);
     axios.put(`https://665736bb9f970b3b36c86669.mockapi.io/reduxStore/${localStorage.getItem("id")}` , {
-      cart: user.cart
-    }).then(function(){
+      cart: arr
+    }).then(function(res){
+      console.log(res.data);
       setIsLoading(false)
     })
   }
