@@ -47,8 +47,8 @@ export default function Pay() {
   return (!isLoading&&
     <div className='flex flex-col min-h-screen items-center gap-4'>
       <Nav/>
-      <h1 className='p-2 font-bold'>Your Order   3   </h1>
-      <div className="flex flex-row justify-between items-center p-4 w-2/3 max-sm:w-full rounded-md ">
+      <h1 className='p-2 font-bold mb-2 text-2xl tracking-tight text-amber-400'>Your Order   3   </h1>
+      <div className="flex flex-row justify-between items-center p-4 w-2/3 max-sm:w-full rounded-md  mb-2 text-2xl tracking-tight text-amber-500 px-9">
         <h1>product</h1>
         <h1>price</h1>
       </div>
@@ -66,11 +66,159 @@ export default function Pay() {
             </div>
         )}
 
-        <h1 className='text-end w-2/3 max-sm:w-full'> <span className='font-bold '>Total </span>{total.toFixed(2)}$</h1>
+        <h1 className='text-end w-2/3 max-sm:w-full '> 
+        
+        <span className='font-bold text-2xl text-amber-400'>Total </span>{total.toFixed(2)}$</h1>
 
         {/* Billing address form */}
 
-        <div className='flex flex-col gap-2 w-2/3 max-sm:w-full items-start justify-center p-2'>
+  <form className="w-[66%] my-8 border border-gray-300 rounded p-8">
+  <div className="relative z-0 w-full mb-5 group">
+    <input
+      className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2
+       border-gray-300 appearance-none
+         focus:outline-none focus:ring-0  focus:border-amber-300 peer"
+      id="floating_email"
+      name="floating_email"
+      placeholder=" Email address"
+      required
+      type="email"
+      // value={user.address}
+      // onChange={(e)=>setUser({...user,address:e.target.value})} 
+    />
+  
+  </div>
+  <div className="relative z-0 w-full mb-5 group">
+    <input
+      className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent 
+      border-0 border-b-2 border-gray-300 appearance-none 
+       focus:outline-none focus:ring-0
+        focus:border-amber-300 peer"
+      id="floating_name"
+      name="floating_name"
+      placeholder="Your Name on Card"
+      required
+      type="text"
+       // value="" 
+      // onChange={(e)=>setUserData({...userData,username:e.target.value})} 
+    />
+  
+  </div>
+  <div className="relative z-0 w-full mb-5 group">
+    <input
+      className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent 
+      border-0 border-b-2 border-gray-300 appearance-none focus:outline-none 
+      focus:ring-0  focus:border-amber-300 peer"
+      id="floating_repeat_password"
+      name="repeat_password"
+      placeholder="Credit Card Number"
+      required
+      type="text"
+        // value="" 
+        // onChange={(e)=>setUserData({...userData,username:e.target.value})} 
+    />
+  
+  </div>
+  <div className="grid md:grid-cols-2 md:gap-6">
+    <div className="relative z-0 w-full mb-5 group">
+      <input
+        className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent 
+        border-0 border-b-2 border-gray-300 appearance-none   
+        focus:outline-none focus:ring-0  focus:border-amber-300 peer"
+        id="floating_first_name"
+        name="floating_first_name"
+        placeholder="Expiration"
+        required
+        type="text"
+        // value="" 
+        // onChange={(e)=>setUserData({...userData,username:e.target.value})} 
+      />
+   
+    </div>
+    <div className="relative z-0 w-full mb-5 group">
+      <input
+        className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 
+        border-b-2 border-gray-300 appearance-none 
+       focus:outline-none focus:ring-0  focus:border-amber-300 peer"
+        id="floating_last_name"
+        name="floating_last_name"
+        placeholder="cvv "
+        required
+        type="text"
+          // value="" 
+          // onChange={(e)=>setUserData({...userData,username:e.target.value})}
+      />
+  
+    </div>
+  </div>
+  <div className="grid md:grid-cols-2 md:gap-6">
+    <div className="relative z-0 w-full mb-5 group">
+      <input
+        className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 
+        border-b-2 border-gray-300 appearance-none
+      focus:outline-none focus:ring-0  focus:border-amber-300 peer"
+        id="floating_phone"
+        name="floating_phone"
+        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+        placeholder="1234 Main st, "
+        required
+        type="text"
+         // value="" 
+            // onChange={(e)=>setUserData({...userData,username:e.target.value})} 
+      />
+  
+    </div>
+    <div className="relative z-0 w-full mb-5 group">
+      <input
+        className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 
+        border-b-2 border-gray-300 appearance-none  
+       focus:outline-none focus:ring-0 focus:border-amber-300 peer"
+        id="floating_company"
+        name="floating_company"
+        placeholder=" State, Country"
+        required
+        type="text"
+         // value="" 
+        // onChange={(e)=>setUserData({...userData,username:e.target.value})} 
+      />
+  
+    </div>
+  </div>
+<div className='flex justify-center items-center'>
+<button
+    type='submit' 
+    onClick={()=>checkout()}
+    className="mx-2 text-white bg-primary hover:bg-blue-800 focus:ring-4 focus:outline-none 
+    focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+  >
+    Submit
+  </button>
+  <button   
+  style={{ background:"linear-gradient(to right, #FDC830, #F37335)",}}
+  className='mx-2 bg-primary text-white rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center' 
+  onClick={()=>navigate('/cart')} >back to cart</button>
+</div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {/* <div className='flex flex-col gap-2 w-2/3 max-sm:w-full items-start justify-center p-2'>
           <h1>Billing address</h1>
             
           <div className="form-control w-full">
@@ -145,12 +293,12 @@ export default function Pay() {
           </div>
 
 
-        </div>
+        </div> */}
 
-        <div className='flex flex-row gap-4 w-2/3 max-sm:w-full items-center justify-end p-2'>
+        {/* <div className='flex flex-row gap-4 w-2/3 max-sm:w-full items-center justify-end p-2'>
         <button className='btn btn-primary' type='submit' onClick={()=>checkout()} >Pay</button>
           <button className='btn' onClick={()=>navigate('/cart')} >back to cart</button>
-        </div>
+        </div> */}
     </div>
   )
 }
