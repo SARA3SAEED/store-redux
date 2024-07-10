@@ -40,6 +40,9 @@ export default function Pay() {
     axios.put(`https://665736bb9f970b3b36c86669.mockapi.io/reduxStore/${localStorage.getItem('id')}`, {
       oldShipments: arr,
       cart: [],
+    }).then(function () {
+      console.log('sucess');
+      navigate('/allOrders')
     })
   }
 
@@ -47,8 +50,10 @@ export default function Pay() {
   return (!isLoading&&
     <div className='flex flex-col min-h-screen items-center gap-4'>
       <Nav/>
-      <h1 className='p-2 font-bold mb-2 text-2xl tracking-tight text-amber-400'>Your Order   3   </h1>
+
+      <h1 className='p-2 font-bold mb-2 text-2xl tracking-tight text-amber-400'>Your Order </h1>
       <div className="flex flex-row justify-between items-center p-4 w-2/3 max-sm:w-full rounded-md  mb-2 text-2xl tracking-tight text-amber-500 px-9">
+          
         <h1>product</h1>
         <h1>price</h1>
       </div>
@@ -72,6 +77,82 @@ export default function Pay() {
 
         {/* Billing address form */}
 
+// <<<<<<< fatimah
+//         <div className='flex flex-col gap-2 w-2/3 max-sm:w-full items-start justify-center p-2'>
+//           <h1>Billing address</h1>
+            
+//           <div className="form-control w-full">
+//           <label className="label">
+//               <span className="label-text">Address</span>
+//           </label>
+//           <input 
+//           value={user.address}
+//           onChange={(e)=>setUser({...user,address:e.target.value})} 
+//           type="text" 
+//           placeholder="1234 Main st, City, Country" 
+//           className="input input-bordered placeholder-primary" 
+//           required />
+//           </div>
+//           <h1>Payment</h1>
+            
+//           <div className="form-control w-full">
+//           <label className="label">
+//               <span className="label-text">Name on Card</span>
+//           </label>
+//           <input 
+//           // value="" 
+//           // onChange={(e)=>setUserData({...userData,username:e.target.value})} 
+//           type="text" 
+//           placeholder="full name" 
+//           className="input input-bordered placeholder-primary" 
+//           required />
+//           </div>
+
+//           <div className="form-control w-full">
+//           <label className="label">
+//               <span className="label-text">Credit Card Number</span>
+//           </label>
+//           <input 
+//           // value="" 
+//           // onChange={(e)=>setUserData({...userData,username:e.target.value})} 
+//           type="text" 
+//           placeholder="1234 1234 1234 1234" 
+//           className="input input-bordered placeholder-primary" 
+//           required />
+//           </div>
+
+//           <div className='flex flex-row items-center w-full gap-2'>
+
+//             <div className="form-control w-full">
+//             <label className="label">
+//                 <span className="label-text">Expiration</span>
+//             </label>
+//             <input 
+//             // value="" 
+//             // onChange={(e)=>setUserData({...userData,username:e.target.value})} 
+//             type="text" 
+//             placeholder="MM/YY" 
+//             className="input input-bordered placeholder-primary" 
+//             required />
+//             </div>
+
+//             <div className="form-control w-full">
+//             <label className="label">
+//                 <span className="label-text">CVC</span>
+//             </label>
+//             <input 
+//             // value="" 
+//             // onChange={(e)=>setUserData({...userData,username:e.target.value})} 
+//             type="text" 
+//             placeholder="CVC" 
+//             className="input input-bordered placeholder-primary" 
+//             required />
+//             </div>
+//           </div>
+
+
+//         </div>
+//======
   <form className="w-[66%] my-8 border border-gray-300 rounded p-8">
   <div className="relative z-0 w-full mb-5 group">
     <input
