@@ -28,6 +28,9 @@ export default function Footer() {
       </div>
       
     </div>
+
+
+{/*     
     <div className="mb-6 flex justify-center space-x-2">
         <a
           href="#!"
@@ -132,7 +135,7 @@ export default function Footer() {
             </svg>
           </span>
         </a>
-      </div>
+      </div> */}
  
 
     
@@ -140,7 +143,7 @@ export default function Footer() {
     <div  
     style={{ background: "linear-gradient(to right, #FDC830, #F37335)" }}
     className="w-full bg-amber-300 p-4 text-center"> © 2023 Copyright:
-    <a href="https://tw-elements.com/">STORE</a>
+    <a href="https://tw-elements.com/">Orderly</a>
     </div>
   </footer>
 </>

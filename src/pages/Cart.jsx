@@ -10,7 +10,9 @@ export default function Cart() {
   const [product, setProduct] = useState([]);
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const navigate = useNavigate();
+
+  const [itemToDelete, setItemToDelete] = useState({})
+  const navigate = useNavigate()
 
   useEffect(() => {
     getProductsAndUser();
@@ -71,23 +73,26 @@ export default function Cart() {
   };
 
   const handleClick = (thisItem) => {
-    const arr = user.cart.filter((item) => item.id !== thisItem.id);
-    setUser({ ...user, cart: arr });
-    console.log(arr);
-    axios
-      .put(
-        `https://665736bb9f970b3b36c86669.mockapi.io/reduxStore/${localStorage.getItem(
-          "id"
-        )}`,
-        {
-          cart: arr,
-        }
-      )
-      .then(function (res) {
-        console.log(res.data);
-        setIsLoading(false);
-      });
-  };
+
+    setItemToDelete(thisItem)
+    console.log(thisItem)
+    document.getElementById('my_modal_2').showModal()
+  }
+
+  const deleteThisItem = () => {
+    console.log(itemToDelete)
+    const arr = user.cart.filter(item => item.id !== itemToDelete.id)
+    setUser({...user , cart:arr})
+    console.log(arr)
+    axios.put(`https://665736bb9f970b3b36c86669.mockapi.io/reduxStore/${localStorage.getItem("id")}` , {
+      cart: arr
+    }).then(function(res){
+      setIsLoading(false)
+      toast.success("Item deleted succsufuly!", {
+        position: "top-center",
+      })
+    })
+  }
 
   return isLoading ? (
     <Laoder />
@@ -116,97 +121,92 @@ export default function Cart() {
         >
           <div className="flex items-center justify-between mb-4 ml-3">
             <h2 className="text-xl font-bold leading-none text-gray-900 ">
-              Product Name{" "}
-            </h2>
-            <h2 className="text-xl font-bold text-gray-900  hover:underline ">
-              Price{" "}
-            </h2>
-            <h2 className="text-xl font-bold text-gray-900  hover:underline ">
-              Guantity{" "}
-            </h2>
-            <h2 className="text-xl font-bold text-gray-900  hover:underline ">
-              Total
-            </h2>
+
+            Product Name </h2>
+            <h2 className="text-xl font-bold text-gray-900  hover:underline " >
+            Price </h2>
+            <h2 className="text-xl font-bold text-gray-900  hover:underline " >
+              Quantity </h2>
+            <h2 className="text-xl font-bold text-gray-900  hover:underline " >
+              Total</h2>
           </div>
           <hr />
 
           {user.cart.map((item) => (
-            <div
-              key={item.id}
-              className="flex items-center justify-between mb-4 "
-            >
-              <div className="flex w-40">
-                <img className="w-12 h-12 rounded " src={item.item.images[0]} />
-                <p className="ml-4  inline-flex items-center text-base font-semibold text-gray-900">
-                  {item.item.title}
-                </p>
-              </div>
-              <p className=" inline-flex items-center justify-center text-base font-semibold text-gray-900 dark:text-white">
-                {item.item.price}
-              </p>
 
-              <div className="flex ">
-                <button
-                  className="w-4 h-6 mt-2  lg:w-8 lg:h-8 border border-gray-300"
-                  onClick={() => decreseQuantity(item.quantity, item)}
-                >
-                  -
-                </button>
-                <p className="m-2 lg:mt-3 inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                  {item.quantity}
-                </p>
-                <button
-                  className="w-4 h-6 mt-2 lg:w-8 lg:h-8 border border-gray-300"
-                  onClick={() => increaseQuantity(item.quantity, item)}
-                >
-                  +
-                </button>
-              </div>
+                  <div key={item.id} className="flex items-center justify-between mb-4 ">
+                    <div className="flex w-40">
+                    <img
+                      className="w-12 h-12 rounded "
+                      src={item.item.images[0]}
+                    />
+                    <p className="ml-4  inline-flex items-center text-base font-semibold text-gray-900">
+                    {item.item.title}
+                    </p>
+                    </div>
+                    <p className=" inline-flex items-center justify-center text-base font-semibold text-gray-900 ">
+                    {item.item.price}
+                    </p>
 
-              <p className="ml-2 inline-flex items-center text-base font-semibold text-gray-900">
-                {parseInt(item.quantity) * parseInt(item.item.price)}
-                <svg
-                  role="button"
-                  onClick={() => handleClick(item)}
-                  className="w-6 h-6 text-gray-800 m-auto  auto-cols-fr"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="8"
-                  height="24"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke="red"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"
-                  />
-                </svg>
-              </p>
-            </div>
-          ))}
-          <hr />
-          <div className="flex items-center justify-center m-3">
-            <button
-              onClick={() => navigate("/Pay")}
-              className="mb-3 inline-block w-44 lg:w-72 rounded px-6 pb-2 pt-2.5 text-xs 
+                    <div className="flex ">
+                    <button className="w-4 h-6 mt-2  lg:w-8 lg:h-8 border border-gray-300" onClick={()=> decreseQuantity(item.quantity , item )}>-</button>
+                    <p className="m-2 lg:mt-3 inline-flex items-center text-base font-semibold text-gray-900 ">
+                    {item.quantity}
+                    </p>
+                    <button className="w-4 h-6 mt-2 lg:w-8 lg:h-8 border border-gray-300" onClick={()=> increaseQuantity(item.quantity , item )}>+</button>
+                    </div>
+                   
+                 
+                    <p className="ml-2 inline-flex items-center text-base font-semibold text-gray-900">
+                    {parseInt(item.quantity) * parseInt(item.item.price)}
+                    <svg role="button" onClick={()=>handleClick(item)} 
+                    className="w-6 h-6 text-gray-800 m-auto  auto-cols-fr" 
+                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" 
+                    width="8" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="red" strokeLinecap="round" strokeLinejoin="round" 
+                    strokeWidth="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
+                    </svg>
+                    </p>
+                    
+                  </div>
+                  
+                     ))}
+                  <hr />
+                  <div className="flex items-center justify-center m-3">
+                
+                  <button
+                            onClick={()=>navigate('/Pay')} 
+                            className="mb-3 inline-block w-44 lg:w-72 rounded px-6 pb-2 pt-2.5 text-xs 
                             font-medium uppercase leading-normal text-white shadow-dark-3 transition 
                             duration-150 ease-in-out hover:shadow-dark-2 focus:shadow-dark-2 
                             focus:outline-none focus:ring-0 active:shadow-dark-2"
-              type="button"
-              data-twe-ripple-init=""
-              data-twe-ripple-color="light"
-              style={{
-                background: "linear-gradient(to right, #FDC830, #F37335)",
-              }}
-            >
-              Check out
-            </button>
+                            type="button"
+                            data-twe-ripple-init=""
+                            data-twe-ripple-color="light"
+                            style={{
+                              background:
+                                "linear-gradient(to right, #FDC830, #F37335)"
+                            }}
+                          >
+                            Check out
+                          </button>
+                          </div>
+          </div>}
+          <dialog id="my_modal_2" className="modal">
+          <div className="modal-box">
+              <h3 className="font-bold text-lg">Warrning</h3>
+              <p className="py-4">Are you sure you want to delete this item?</p>
+              <div className="modal-action">
+              <form method="dialog">
+                  <button className="btn btn-neutral mr-2" onClick={()=>deleteThisItem()} >Delete</button>
+                  <button className="btn">Close</button>
+              </form>
+              </div>
           </div>
-        </div>
-      )}
-    </div>
+          </dialog>
+          <ToastContainer />
+      </div>
+    )
+
   );
 }
