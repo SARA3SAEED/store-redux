@@ -7,6 +7,7 @@ import Products from '../pages/Products';
 import Details from '../pages/Details';
 import Cart from '../pages/Cart';
 import Pay from '../pages/Pay';
+import AllOrders from '../pages/AllOrders';
 import NotFound from '../pages/NotFound';
 
 
@@ -22,6 +23,7 @@ export default function Router() {
         { path: "/cart", element: <Cart />, },
         { path: "/pay", element: <Pay />, },
         { path: "/*", element: <NotFound />, },
+        { path: "/allOrders", element: <AllOrders />, },
     ])
     return (<RouterProvider router={router} />)
 }

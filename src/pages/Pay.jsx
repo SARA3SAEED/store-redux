@@ -40,6 +40,9 @@ export default function Pay() {
     axios.put(`https://665736bb9f970b3b36c86669.mockapi.io/reduxStore/${localStorage.getItem('id')}`, {
       oldShipments: arr,
       cart: [],
+    }).then(function () {
+      console.log('sucess');
+      navigate('/allOrders')
     })
   }
 
@@ -47,7 +50,7 @@ export default function Pay() {
   return (!isLoading&&
     <div className='flex flex-col min-h-screen items-center gap-4'>
       <Nav/>
-      <h1 className='p-2 font-bold'>Your Order   3   </h1>
+      <h1 className='p-2 font-bold'>Your Order  </h1>
       <div className="flex flex-row justify-between items-center p-4 w-2/3 max-sm:w-full rounded-md ">
         <h1>product</h1>
         <h1>price</h1>
@@ -97,7 +100,7 @@ export default function Pay() {
           // value="" 
           // onChange={(e)=>setUserData({...userData,username:e.target.value})} 
           type="text" 
-          placeholder="1234 Main st, State, Country" 
+          placeholder="full name" 
           className="input input-bordered placeholder-primary" 
           required />
           </div>
@@ -110,7 +113,7 @@ export default function Pay() {
           // value="" 
           // onChange={(e)=>setUserData({...userData,username:e.target.value})} 
           type="text" 
-          placeholder="1234 Main st, State, Country" 
+          placeholder="1234 1234 1234 1234" 
           className="input input-bordered placeholder-primary" 
           required />
           </div>
@@ -125,20 +128,20 @@ export default function Pay() {
             // value="" 
             // onChange={(e)=>setUserData({...userData,username:e.target.value})} 
             type="text" 
-            placeholder="1234 Main st, State, Country" 
+            placeholder="MM/YY" 
             className="input input-bordered placeholder-primary" 
             required />
             </div>
 
             <div className="form-control w-full">
             <label className="label">
-                <span className="label-text">CVV</span>
+                <span className="label-text">CVC</span>
             </label>
             <input 
             // value="" 
             // onChange={(e)=>setUserData({...userData,username:e.target.value})} 
             type="text" 
-            placeholder="1234 Main st, State, Country" 
+            placeholder="CVC" 
             className="input input-bordered placeholder-primary" 
             required />
             </div>
