@@ -240,6 +240,7 @@ export default function Singup() {
           </div>
         </div>
       </section>
+      <ToastContainer />
     </>
   );
 }
