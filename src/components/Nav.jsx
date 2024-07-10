@@ -38,14 +38,14 @@ export default function Nav() {
             className="px-5 rounded relative flex w-full flex-nowrap items-center 
             justify-between bg-amber-300  py-2 shadow-dark-mild  lg:flex-wrap lg:justify-start lg:py-4"
             data-twe-navbar-ref="" >
-            <div className="flex w-full flex-wrap items-center justify-between px-3">
-            <div className="flex ms-2 md:me-2">
+            <div className="flex w-full h-full flex-wrap items-center justify-between px-3">
+            <div className="max-sm:gap-4 items-center flex ms-2 md:me-2">
                 <Link to="/" className="text-xl text-amber-600 " >
                 <img className='rounded-full w-12' src={img55} alt="" />
                 </Link>
                 
                 <div
-                        className="w-20 text-center border border-amber-300 p-3 mb-4 rounded lg:mx-1 ps-2 mr-1 mt-1 lg:ml-4 lg:mb-0 lg:pe-1 lg:ps-0"
+                        className="lg:w-28 text-center border border-amber-300 p-3 mb-4 rounded lg:mx-1 ps-2 mr-1 mt-1 lg:ml-4 lg:mb-0 lg:pe-1 lg:ps-0"
                         data-twe-nav-item-ref="" >
                         <Link
                         className="p-0 text-white transition duration-200 hover:text-black/80 
@@ -55,6 +55,26 @@ export default function Nav() {
                         to="/products"
                         data-twe-nav-link-ref="" >
                         Products
+                        </Link>
+                    </div>
+
+
+                    <div
+                        className="lg:w-28 text-center border border-amber-300 p-3 mb-4 rounded lg:mx-1 ps-2 mr-1 mt-1 lg:ml-4 lg:mb-0 lg:pe-1 lg:ps-0"
+                        data-twe-nav-item-ref="" >
+                        <Link
+                        className="p-0 text-white transition duration-200 hover:text-black/80 
+                        hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none 
+                        lg:px-2"
+                        aria-current="page"
+                       to= {
+                            localStorage.getItem('islogin')=='true'?
+                            "/allOrders":
+                            '/login'
+
+                        }
+                        data-twe-nav-link-ref="" >
+                        All Order
                         </Link>
                     </div>
             </div>
@@ -125,7 +145,12 @@ export default function Nav() {
                      className="p-0 text-black/60 transition duration-200 hover:text-black/80 
                      hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none 
                      lg:px-2"
-                     to="/cart" >
+                     to= {
+                        localStorage.getItem('islogin')=='true'?
+                        "/cart":
+                        '/login'
+
+                    }>
                      <img className='mx-3 mt-2 w-6 h-6' src='https://img.icons8.com/?size=160&id=hqh6JRLqKxt0&format=png'/>
                      </Link>
                  </div>

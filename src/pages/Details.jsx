@@ -92,13 +92,13 @@ export default function Details() {
 
   return (
     !isLoading && (
-      <div className="flex flex-col  min-h-screen w-full">
+      <div className="flex flex-col min-h-screen w-full">
         <Nav />
 
-        <div className="flex justify-center items-center h-full m-auto w-full">
-          <div className="w-3/5 border border-red-300 flex flex-col  justify-center rounded-lg bg-white text-surface shadow-secondary-1 md:flex-row">
+        <div className="flex justify-center items-center h-full m-auto w-full p-2">
+          <div className="lg:w-3/5 border border-red-300 flex flex-col  justify-center rounded-lg bg-white text-surface shadow-secondary-1 md:flex-row">
             <img
-              className="w-2/5 rounded-t-lg object-cover md:h-auto  md:!rounded-none md:!rounded-s-lg"
+              className="w-2/5 max-sm:m-auto rounded-t-lg object-cover md:h-auto  md:!rounded-none md:!rounded-s-lg"
               src={product.images[0]}
             />
             <div className="w-full flex flex-col justify-start p-6 h-96 ml-4">
@@ -110,7 +110,7 @@ export default function Details() {
               <p className="mb-4 text-base">
                 {product.price}$ </p>
 
-              <p className="text-xs text-surface/75 ">
+              <div className="flex max-sm:justify-center text-xs max-sm:w-full ">
                 <input
                   className="w-14 p-1 btn bg-primary"
                   style={{ background: "linear-gradient(to right, #FDC830, #F37335)" }}
@@ -124,7 +124,7 @@ export default function Details() {
                   className="btn mx-2 bg-primary " onClick={localStorage.getItem('id') == undefined ? () => navigate('/login') : () => addToCart()}> Add to Cart </button>
                 <button style={{ background: "linear-gradient(to right, #FDC830, #F37335)" }}
                   className="btn mx-2 bg-secondary" onClick={() => navigate("/products")}> Back </button>
-              </p>
+              </div>
             </div>
 
           </div>

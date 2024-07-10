@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { v4 as uuid } from 'uuid';
 import Nav from '../components/Nav';
+import { toast, ToastContainer } from 'react-toastify';
+
 
 export default function Pay() {
   // use states
@@ -33,6 +35,11 @@ export default function Pay() {
       });
   }
   const checkout = () => {
+    if(user.address.length<=3){
+      toast.error("You must add adress first", {
+        position: "top-center"
+      })
+    } else {
     const newShipment = {shipmentId:uuid() , shipmentDetailes: user.cart , total: total , date: new Date()}
     const arr = user.oldShipments
     arr.push(newShipment)
@@ -43,12 +50,14 @@ export default function Pay() {
     }).then(function () {
       console.log('sucess');
       navigate('/allOrders')
-    })
+    })}
   }
 
 
   return (!isLoading&&
     <div className='flex flex-col min-h-screen items-center gap-4'>
+            <ToastContainer stacked />
+
       <Nav/>
 
       <h1 className='p-2 font-bold mb-2 text-2xl tracking-tight text-amber-400'>Your Order </h1>
@@ -162,11 +171,11 @@ export default function Pay() {
          focus:outline-none focus:ring-0  focus:border-amber-300 peer"
       id="floating_email"
       name="floating_email"
-      placeholder=" Email address"
+      placeholder=" Address"
       required
-      type="email"
-      // value={user.address}
-      // onChange={(e)=>setUser({...user,address:e.target.value})} 
+      type="text"
+      value={user.address}
+      onChange={(e)=>setUser({...user,address:e.target.value})} 
     />
   
   </div>
@@ -270,7 +279,7 @@ export default function Pay() {
 <button
     type='submit' 
     onClick={()=>checkout()}
-    className="mx-2 text-white bg-primary hover:bg-blue-800 focus:ring-4 focus:outline-none 
+    className="mx-2 text-white bg-primary hover:bg-amber-400 focus:ring-4 focus:outline-none 
     focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
   >
     Submit

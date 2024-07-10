@@ -22,8 +22,8 @@ export default function Router() {
         { path: "/det/:id", element: <Details />, },
         { path: "/cart", element: <Cart />, },
         { path: "/pay", element: <Pay />, },
-        { path: "/*", element: <NotFound />, },
         { path: "/allOrders", element: <AllOrders />, },
+        { path: "/*", element: <NotFound />, },
     ])
     return (<RouterProvider router={router} />)
 }

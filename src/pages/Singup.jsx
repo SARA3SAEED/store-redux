@@ -193,13 +193,13 @@ export default function Singup() {
                                 "linear-gradient(to right, #FDC830, #F37335)",
                             }}
                           >
-                            Log in
+                           Register
                           </button>
                           {/*Forgot password link*/}
                         </div>
                         {/*Register button*/}
                         <div className="flex items-center justify-between pb-6">
-                          <p className="mb-0 me-2">Are You have an account?</p>
+                          <p className="mb-0 me-2">Do You have an account?</p>
                           <Link
                             to="/login"
                             type="button"
@@ -212,6 +212,20 @@ export default function Singup() {
                             data-twe-ripple-color="light"
                           >
                             Log in
+                          </Link>
+
+                          <Link
+                            to="/"
+                            type="button"
+                            className="inline-block rounded border-2 border-primary px-6 pb-[6px] pt-2 
+                      text-xs font-medium uppercase leading-normal text-danger transition duration-150 
+                      ease-in-out hover:border-danger-600 hover:bg-danger-50/50 hover:text-danger-600 
+                      focus:border-danger-600 focus:bg-danger-50/50 focus:text-danger-600 
+                      focus:outline-none focus:ring-0 active:border-danger-700 active:text-danger-700"
+                            data-twe-ripple-init=""
+                            data-twe-ripple-color="light"
+                          >
+                            HOME
                           </Link>
                         </div>
                       </form>
@@ -240,7 +254,6 @@ export default function Singup() {
           </div>
         </div>
       </section>
-      <ToastContainer />
     </>
   );
 }

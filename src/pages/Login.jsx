@@ -158,6 +158,21 @@ export default function Login() {
                           >
                             Register
                           </Link>
+
+
+                          <Link
+                            to="/"
+                            type="button"
+                            className="inline-block rounded border-2 border-primary px-6 pb-[6px] pt-2 
+                      text-xs font-medium uppercase leading-normal text-danger transition duration-150 
+                      ease-in-out hover:border-danger-600 hover:bg-danger-50/50 hover:text-danger-600 
+                      focus:border-danger-600 focus:bg-danger-50/50 focus:text-danger-600 
+                      focus:outline-none focus:ring-0 active:border-danger-700 active:text-danger-700"
+                            data-twe-ripple-init=""
+                            data-twe-ripple-color="light"
+                          >
+                            HOME
+                          </Link>
                         </div>
                       </form>
                     </div>
@@ -186,7 +201,6 @@ export default function Login() {
           </div>
         </div>
       </section>
-      <ToastContainer />
     </>
   )
 }
