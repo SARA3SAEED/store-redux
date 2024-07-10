@@ -25,7 +25,7 @@ export default function Products() {
   return (!isLoading &&
     <>
       <Nav />
-      <div className='flex flex-wrap justify-center gap-2 mt-5 '>
+      <div className='flex flex-wrap justify-center gap-2 mt-5'>
         {products.map((e) => {
           return (
             <div key={e.id} className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
@@ -126,8 +126,7 @@ export default function Products() {
         })}
       </div>
       <div className='mt-4'>
-        <Footer />
-
+      <Footer />
       </div>
     </>
   )

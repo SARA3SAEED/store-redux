@@ -81,14 +81,18 @@ export default function Cart() {
         <Nav />
       {user.cart.length==0 ?
       <div className="flex justify-center items-center m-auto ">
-        <div className="flex justify-center items-center m-auto w-96 p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
-      <h5  className="flex justify-center items-center m-auto m-auto bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-500 h-28 mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+        <div className="flex justify-center items-center m-auto w-96 p-6 bg-white border
+         border-gray-200 rounded-lg shadow hover:bg-gray-100">
+      <h5  className="flex justify-center items-center m-auto m-auto bg-clip-text text-transparent 
+      bg-gradient-to-r from-yellow-400 to-orange-500 h-28 mb-2 text-2xl font-bold
+      tracking-tight text-gray-900 ">
       Sorry, no items in the cart
       </h5>
       </div>
       </div>
        :
-        <div className="w-full p-4 bg-white border border-gray-200 rounded shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+        <div className="w-full p-4 bg-white border border-gray-200 rounded shadow sm:p-8
+         ">
           <div className="flex items-center justify-between mb-4 ml-3">
             <h2 className="text-xl font-bold leading-none text-gray-900 ">
             Product Name </h2>
@@ -111,7 +115,7 @@ export default function Cart() {
                       className="w-12 h-12 rounded "
                       src={item.item.images[0]}
                     />
-                    <p className="ml-4  inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                    <p className="ml-4  inline-flex items-center text-base font-semibold text-gray-900">
                     {item.item.title}
                     </p>
                     </div>
@@ -128,7 +132,7 @@ export default function Cart() {
                     </div>
                    
                  
-                    <p className="ml-2 inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                    <p className="ml-2 inline-flex items-center text-base font-semibold text-gray-900">
                     {parseInt(item.quantity) * parseInt(item.item.price)}
                     <svg role="button" onClick={()=>handleClick(item)} 
                     className="w-6 h-6 text-gray-800 m-auto  auto-cols-fr" 

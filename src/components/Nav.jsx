@@ -39,11 +39,27 @@ export default function Nav() {
             justify-between bg-amber-300  py-2 shadow-dark-mild  lg:flex-wrap lg:justify-start lg:py-4"
             data-twe-navbar-ref="" >
             <div className="flex w-full flex-wrap items-center justify-between px-3">
-            <div className="ms-2 md:me-2">
+            <div className="flex ms-2 md:me-2">
                 <Link to="/" className="text-xl text-amber-600 " >
                 <img className='rounded-full w-12' src={img55} alt="" />
                 </Link>
+                
+                <div
+                        className="w-20 text-center border border-amber-300 p-3 mb-4 rounded lg:mx-1 ps-2 mr-1 mt-1 lg:ml-4 lg:mb-0 lg:pe-1 lg:ps-0"
+                        data-twe-nav-item-ref="" >
+                        <Link
+                        className="p-0 text-white transition duration-200 hover:text-black/80 
+                        hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none 
+                        lg:px-2"
+                        aria-current="page"
+                        to="/products"
+                        data-twe-nav-link-ref="" >
+                        Products
+                        </Link>
+                    </div>
             </div>
+
+                
             {/* Hamburger button for mobile view */}
             <button
                 className="block border-0 bg-transparent px-2 text-white 
@@ -113,14 +129,16 @@ export default function Nav() {
                      <img className='mx-3 mt-2 w-6 h-6' src='https://img.icons8.com/?size=160&id=hqh6JRLqKxt0&format=png'/>
                      </Link>
                  </div>
+               
                  </div>
+                 
 
 
                  {/* Left links */}
                  <ul
                    className="list-style-none me-auto flex ps-0 lg:mt-1 lg:flex-row"
                    data-twe-navbar-nav-ref="" >
-                    <li
+                    {/* <li
                         className="w-20 text-center border border-amber-300 p-3 mb-4 rounded lg:mx-1 ps-2 mr-1 mt-1 lg:ml-4 lg:mb-0 lg:pe-1 lg:ps-0"
                         data-twe-nav-item-ref="" >
                         <Link
@@ -132,7 +150,7 @@ export default function Nav() {
                         data-twe-nav-link-ref="" >
                         Products
                         </Link>
-                    </li>
+                    </li> */}
                     {
                     localStorage.getItem('id')==undefined?
                     <>
