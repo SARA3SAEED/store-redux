@@ -22,23 +22,16 @@ export default function Singup() {
       oldShipments: [],
     };
     if (userName.length < 4) {
-      toast.error("User Name Must Be More Than 3 Letter", {
-        position: "top-center",
-      });
+      toast.error("User Name Must Be More Than 3 Letter");
     } else if (!email.match("[a-zA-z0-9]@gmail.[a-zA-z0-9]")) {
-      toast.error("The Email Must Contain @gmail", {
-        position: "top-center",
-      });
+      toast.error("The Email Must Contain @gmail");
     } else if (
       !password.match("[a-z]") ||
       !password.match("[A-Z]") ||
       !password.match("[0-9]")
     ) {
       toast.error(
-        "Password Must Contain One Small Letter , One Big Letter, One Number",
-        {
-          position: "top-center",
-        }
+        "Password Must Contain One Small Letter , One Big Letter, One Number"
       );
     } else {
       axios
@@ -48,9 +41,7 @@ export default function Singup() {
             e.email == email;
           });
           if (notNew) {
-            toast.error("This Email Have Already Been Used", {
-              position: "top-center",
-            });
+            toast.error("This Email Have Already Been Used");
           } else {
             axios
               .post(
@@ -58,9 +49,7 @@ export default function Singup() {
                 newUser
               )
               .then(
-                toast.success("You Have Successfully Made An Account", {
-                  position: "top-center",
-                }),
+                toast.success("You Have Successfully Made An Account"),
                 navigate("../login")
               );
           }
@@ -70,10 +59,21 @@ export default function Singup() {
 
   return (
     <>
-   
-
       <section className="flex justify-center gradient-form h-screen bg-base-100 ">
-        <ToastContainer stacked />
+        <ToastContainer
+          position="top-left"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          transition:Bounce
+          stacked
+        />
         <div className="container w-[85%]  h-full p-2">
           <div className="flex h-full flex-wrap items-center justify-center text-neutral-800 ">
             <div className="w-full">
@@ -193,7 +193,7 @@ export default function Singup() {
                                 "linear-gradient(to right, #FDC830, #F37335)",
                             }}
                           >
-                           Register
+                            Register
                           </button>
                           {/*Forgot password link*/}
                         </div>
@@ -243,8 +243,10 @@ export default function Singup() {
                         We are more than just a company
                       </h4>
                       <p className="text-sm">
-                      Our store offers a wide variety of products from top brands at competitive prices.
-                      We are committed to ensuring you have a seamless shopping experience from start to finish.
+                        Our store offers a wide variety of products from top
+                        brands at competitive prices. We are committed to
+                        ensuring you have a seamless shopping experience from
+                        start to finish.
                       </p>
                     </div>
                   </div>

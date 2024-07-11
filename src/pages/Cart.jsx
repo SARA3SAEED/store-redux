@@ -6,6 +6,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Nav from "../components/Nav";
 import Loader from "../components/Loader";
+import Footer from "../components/Footer";
 
 export default function Cart() {
   const [product, setProduct] = useState([]);
@@ -94,9 +95,7 @@ export default function Cart() {
       )
       .then(function (res) {
         setIsLoading(false);
-        toast.success("Item deleted succsufuly!", {
-          position: "top-center",
-        });
+        toast.success("Item deleted succsufuly!");
       });
   };
 
@@ -235,7 +234,20 @@ export default function Cart() {
           </div>
         </div>
       </dialog>
-      <ToastContainer />
+      <Footer />
+      <ToastContainer
+        position="top-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition:Bounce
+      />
     </div>
   );
 }

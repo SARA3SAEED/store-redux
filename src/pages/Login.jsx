@@ -1,43 +1,33 @@
-import axios from 'axios';
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
+import axios from "axios";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import img55 from '../assets/img55.jpg';
-
-
-
-
+import img55 from "../assets/img55.jpg";
 
 export default function Login() {
-  const [userName, setUserName] = useState('')
-  const [password, setPassword] = useState('')
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
 
-  const navigate = useNavigate()
-
+  const navigate = useNavigate();
 
   const handelLogin = () => {
-    axios.get('https://665736bb9f970b3b36c86669.mockapi.io/reduxStore')
+    axios
+      .get("https://665736bb9f970b3b36c86669.mockapi.io/reduxStore")
       .then(function (res) {
         res.data.map((e) => {
           if (e.userName == userName && e.password == password) {
-            localStorage.setItem('islogin', true)
-            localStorage.setItem('id', e.id)
-            toast.success("You Have Successfully Logged In", {
-              position: "top-center"
-            })
-            navigate(`/`)
+            localStorage.setItem("islogin", true);
+            localStorage.setItem("id", e.id);
+            toast.success("You Have Successfully Logged In");
+            navigate(`/`);
           } else {
-            toast.error("User Name or Password is invalid", {
-              position: "top-center"
-            })
+            toast.error("User Name or Password is invalid");
           }
-        })
-      })
-  }
-
-
+        });
+      });
+  };
 
   return (
     <>
@@ -47,10 +37,21 @@ export default function Login() {
       <input value={password} onChange={(e) => setPassword(e.target.value)} placeholder='password' type="password" name="" id="" />
       <button onClick={handelLogin}>send  </button> */}
 
-
-
       <section className="flex justify-center gradient-form h-screen bg-base-100 ">
-      <ToastContainer stacked />
+        <ToastContainer
+          position="top-left"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          transition:Bounce
+          stacked
+        />
         <div className="container w-[85%]  h-full p-2">
           <div className="flex h-full flex-wrap items-center justify-center text-neutral-800 ">
             <div className="w-full">
@@ -61,15 +62,18 @@ export default function Login() {
                     <div className="md:mx-6 md:p-12">
                       {/*Logo*/}
                       <Link to="/" className="text-center rounded-full">
-                          <img
-                            className="mx-auto w-40 mb-9"
-                            src={img55}
-                            alt="logo"
-                          />
-                        </Link>
+                        <img
+                          className="mx-auto w-40 mb-9"
+                          src={img55}
+                          alt="logo"
+                        />
+                      </Link>
                       <form>
                         {/*Username input*/}
-                        <div className="relative mb-4" data-twe-input-wrapper-init="">
+                        <div
+                          className="relative mb-4"
+                          data-twe-input-wrapper-init=""
+                        >
                           <input
                             type="text"
                             className="peer block min-h-[auto] w-full rounded border-0 
@@ -95,7 +99,10 @@ export default function Login() {
                           </label>
                         </div>
                         {/*Password input*/}
-                        <div className="relative mb-4" data-twe-input-wrapper-init="">
+                        <div
+                          className="relative mb-4"
+                          data-twe-input-wrapper-init=""
+                        >
                           <input
                             type="password"
                             className="peer block min-h-[auto] w-full rounded border-0 
@@ -134,7 +141,7 @@ export default function Login() {
                             data-twe-ripple-color="light"
                             style={{
                               background:
-                                "linear-gradient(to right, #FDC830, #F37335)"
+                                "linear-gradient(to right, #FDC830, #F37335)",
                             }}
                           >
                             Log in
@@ -145,7 +152,8 @@ export default function Login() {
                         {/*Register button*/}
                         <div className="flex items-center justify-between pb-6">
                           <p className="mb-0 me-2">Don't have an account?</p>
-                          <Link to="/singup"
+                          <Link
+                            to="/singup"
                             type="button"
                             className="inline-block rounded border-2 border-primary px-6 pb-[6px] 
                             pt-2 text-xs font-medium uppercase leading-normal text-danger transition 
@@ -158,7 +166,6 @@ export default function Login() {
                           >
                             Register
                           </Link>
-
 
                           <Link
                             to="/"
@@ -182,8 +189,7 @@ export default function Login() {
                     className="flex items-center rounded-b-lg lg:w-6/12 lg:rounded-e-lg 
                     lg:rounded-bl-none"
                     style={{
-                      background:
-                        "linear-gradient(to right, #FDC830, #F37335)"
+                      background: "linear-gradient(to right, #FDC830, #F37335)",
                     }}
                   >
                     <div className="px-4 py-6 text-white md:mx-6 md:p-12">
@@ -191,8 +197,11 @@ export default function Login() {
                         We are more than just a company
                       </h4>
                       <p className="text-sm">
-                      Our store offers a wide variety of products from top brands at competitive prices.
-                      We are committed to ensuring you have a seamless shopping experience from start to finish.                      </p>
+                        Our store offers a wide variety of products from top
+                        brands at competitive prices. We are committed to
+                        ensuring you have a seamless shopping experience from
+                        start to finish.{" "}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -202,5 +211,5 @@ export default function Login() {
         </div>
       </section>
     </>
-  )
+  );
 }

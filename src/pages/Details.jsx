@@ -6,6 +6,7 @@ import { v4 as uuid } from "uuid";
 import "react-toastify/dist/ReactToastify.css";
 import Nav from "../components/Nav";
 import Loader from "../components/Loader";
+import Footer from "../components/Footer";
 
 export default function Details() {
   // use states
@@ -13,6 +14,7 @@ export default function Details() {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
+  const [cartCount, setCartCount] = useState(0);
 
   // other varibles
   const params = useParams();
@@ -75,17 +77,9 @@ export default function Details() {
         }
       )
       .then(function () {
+        setCartCount(arr.length);
         console.log("sucess");
-        toast.success("Items added to cart !", {
-          position: "top-center",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
+        toast.success("Items added to cart !");
       });
   };
 
@@ -93,10 +87,10 @@ export default function Details() {
     <Loader />
   ) : (
     <div className="flex flex-col min-h-screen w-full">
-      <Nav />
+      <Nav shick={cartCount} />
 
       <div className="flex justify-center items-center h-full m-auto w-full p-2">
-        <div className="lg:w-3/5 border border-red-300 flex flex-col  justify-center rounded-lg bg-white text-surface shadow-secondary-1 md:flex-row">
+        <div className="lg:w-3/5 border flex flex-col  justify-center rounded-lg text-surface shadow-secondary-1 md:flex-row">
           <img
             className="w-2/5 max-sm:m-auto rounded-t-lg object-cover md:h-auto  md:!rounded-none md:!rounded-s-lg"
             src={product.images[0]}
@@ -145,7 +139,20 @@ export default function Details() {
           </div>
         </div>
       </div>
-      <ToastContainer />
+      <Footer />
+      <ToastContainer
+        position="top-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition:Bounce
+      />
     </div>
   );
 }

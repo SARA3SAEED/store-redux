@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 import Loader from "../components/Loader";
 
 function AllOrders() {
@@ -38,7 +39,7 @@ function AllOrders() {
          border-gray-200 rounded-lg shadow hover:bg-gray-100"
           >
             <h5
-              className="flex justify-center items-center m-auto m-auto bg-clip-text text-transparent 
+              className="flex justify-center items-center m-auto bg-clip-text text-transparent 
       bg-gradient-to-r from-yellow-400 to-orange-500 h-28 mb-2 text-2xl font-bold
       tracking-tight text-gray-900 "
             >
@@ -49,7 +50,7 @@ function AllOrders() {
       ) : (
         <>
           <h1
-            className="text-center font-bold bg-clip-text text-transparent 
+            className="text-center text-xl font-bold bg-clip-text text-transparent 
       bg-gradient-to-r from-yellow-400 to-orange-500 "
           >
             All orders:{" "}
@@ -67,18 +68,18 @@ function AllOrders() {
                   <h1>Total: {items.total.toFixed(2)}$</h1>
                 </div>
 
-                <div className="collapse-content">
-                  <div className="grid grid-cols-2 items-center gap-2">
-                    <div className="flex flex-row items-center gap-2">
-                      {" "}
+                <div className="collapse-content bg-amber-100">
+                  <div className="flex flex-row justify-between pr-10 items-center gap-2">
+                    <div className="flex flex-row items-center justify-between">
+                      {/* {" "} */}
                       <p>Product</p>
-                      <p> </p>
+                      {/* <p> </p> */}
                     </div>
                     <p>Price</p>
                   </div>
                   {items.shipmentDetailes.map((item) => (
                     <div
-                      className="grid grid-cols-2 items-center gap-2"
+                      className="flex flex-row justify-between items-center pr-10"
                       key={item.id}
                     >
                       <div className="flex flex-row items-center gap-2">
@@ -95,6 +96,7 @@ function AllOrders() {
           </div>
         </>
       )}
+      <Footer />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 import { toast, ToastContainer } from "react-toastify";
 import Loader from "../components/Loader";
 
@@ -11,6 +12,7 @@ export default function Pay() {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [total, setTotal] = useState(0);
+  const [address, setAddress] = useState("");
 
   // other varibles
   const navigate = useNavigate();
@@ -30,6 +32,7 @@ export default function Pay() {
       )
       .then(function (res) {
         setUser(res.data);
+        setAddress(res.data.address);
         const sum = res.data.cart.reduce(
           (acc, curr) => acc + curr.item.price * curr.quantity,
           0
@@ -41,10 +44,8 @@ export default function Pay() {
       });
   };
   const checkout = () => {
-    if (user.address.length <= 3) {
-      toast.error("You must add adress first", {
-        position: "top-center",
-      });
+    if (address.length <= 3) {
+      toast.error("You must add adress first");
     } else {
       const newShipment = {
         shipmentId: uuid(),
@@ -63,6 +64,7 @@ export default function Pay() {
           {
             oldShipments: arr,
             cart: [],
+            address: address,
           }
         )
         .then(function () {
@@ -76,8 +78,6 @@ export default function Pay() {
     <Loader />
   ) : (
     <div className="flex flex-col min-h-screen items-center gap-4">
-      <ToastContainer stacked />
-
       <Nav />
 
       <h1 className="p-2 font-bold mb-2 text-2xl tracking-tight text-amber-400">
@@ -201,8 +201,8 @@ export default function Pay() {
             placeholder=" Address"
             required
             type="text"
-            value={user.address}
-            onChange={(e) => setUser({ ...user, address: e.target.value })}
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
           />
         </div>
         <div className="relative z-0 w-full mb-5 group">
@@ -315,6 +315,21 @@ export default function Pay() {
           </button>
         </div>
       </form>
+      <ToastContainer
+        position="top-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition:Bounce
+        stacked
+      />
+      <Footer />
     </div>
   );
 }
