@@ -5,6 +5,8 @@ import { toast, ToastContainer } from "react-toastify";
 import { v4 as uuid } from "uuid";
 import "react-toastify/dist/ReactToastify.css";
 import Nav from "../components/Nav";
+import Loader from "../components/Loader";
+import Footer from "../components/Footer";
 
 export default function Details() {
   // use states
@@ -12,6 +14,7 @@ export default function Details() {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
+  const [cartCount, setCartCount] = useState(0);
 
   // other varibles
   const params = useParams();
@@ -26,12 +29,10 @@ export default function Details() {
 
   // functions
   const getProduct = () => {
-    axios
-      .get(`https://dummyjson.com/products/${id}`)
-      .then(function (res) {
-        setProduct(res.data);
-        setIsLoading(false);
-      });
+    axios.get(`https://dummyjson.com/products/${id}`).then(function (res) {
+      setProduct(res.data);
+      setIsLoading(false);
+    });
   };
   const getUser = () => {
     axios
@@ -42,8 +43,8 @@ export default function Details() {
       )
       .then(function (res) {
         setUser(res.data);
-      })
-  }
+      });
+  };
 
   const addToCart = () => {
     const arr = user.cart;
@@ -76,61 +77,82 @@ export default function Details() {
         }
       )
       .then(function () {
+        setCartCount(arr.length);
         console.log("sucess");
-        toast.success("Items added to cart !", {
-          position: "top-center",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
+        toast.success("Items added to cart !");
       });
   };
 
-  return (
-    !isLoading && (
-      <div className="flex flex-col min-h-screen w-full">
-        <Nav />
+  return isLoading ? (
+    <Loader />
+  ) : (
+    <div className="flex flex-col min-h-screen w-full">
+      <Nav shick={cartCount} />
 
-        <div className="flex justify-center items-center h-full m-auto w-full p-2">
-          <div className="lg:w-3/5 border border-red-300 flex flex-col  justify-center rounded-lg bg-white text-surface shadow-secondary-1 md:flex-row">
-            <img
-              className="w-2/5 max-sm:m-auto rounded-t-lg object-cover md:h-auto  md:!rounded-none md:!rounded-s-lg"
-              src={product.images[0]}
-            />
-            <div className="w-full flex flex-col justify-start p-6 h-96 ml-4">
-              <h5 className="mb-2 text-xl font-medium h-20">
-                {product.title}
-              </h5>
-              <p className="mb-4 text-base h-40">
-                {product.description} </p>
-              <p className="mb-4 text-base">
-                {product.price}$ </p>
+      <div className="flex justify-center items-center h-full m-auto w-full p-2">
+        <div className="lg:w-3/5 border flex flex-col  justify-center rounded-lg text-surface shadow-secondary-1 md:flex-row">
+          <img
+            className="w-2/5 max-sm:m-auto rounded-t-lg object-cover md:h-auto  md:!rounded-none md:!rounded-s-lg"
+            src={product.images[0]}
+          />
+          <div className="w-full flex flex-col justify-start p-6 h-96 ml-4">
+            <h5 className="mb-2 text-xl font-medium h-20">{product.title}</h5>
+            <p className="mb-4 text-base h-40">{product.description} </p>
+            <p className="mb-4 text-base">{product.price}$ </p>
 
-              <div className="flex max-sm:justify-center text-xs max-sm:w-full ">
-                <input
-                  className="w-14 p-1 btn bg-primary"
-                  style={{ background: "linear-gradient(to right, #FDC830, #F37335)" }}
-                  type="number"
-                  min={1}
-                  value={quantity}
-                  onChange={(e) => setQuantity(e.target.value)}
-
-                />
-                <button style={{ background: "linear-gradient(to right, #FDC830, #F37335)" }}
-                  className="btn mx-2 bg-primary " onClick={localStorage.getItem('id') == undefined ? () => navigate('/login') : () => addToCart()}> Add to Cart </button>
-                <button style={{ background: "linear-gradient(to right, #FDC830, #F37335)" }}
-                  className="btn mx-2 bg-secondary" onClick={() => navigate("/products")}> Back </button>
-              </div>
+            <div className="flex max-sm:justify-center text-xs max-sm:w-full ">
+              <input
+                className="w-14 p-1 btn bg-primary"
+                style={{
+                  background: "linear-gradient(to right, #FDC830, #F37335)",
+                }}
+                type="number"
+                min={1}
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
+              />
+              <button
+                style={{
+                  background: "linear-gradient(to right, #FDC830, #F37335)",
+                }}
+                className="btn mx-2 bg-primary "
+                onClick={
+                  localStorage.getItem("id") == undefined
+                    ? () => navigate("/login")
+                    : () => addToCart()
+                }
+              >
+                {" "}
+                Add to Cart{" "}
+              </button>
+              <button
+                style={{
+                  background: "linear-gradient(to right, #FDC830, #F37335)",
+                }}
+                className="btn mx-2 bg-secondary"
+                onClick={() => navigate("/products")}
+              >
+                {" "}
+                Back{" "}
+              </button>
             </div>
-
           </div>
         </div>
-        <ToastContainer />
       </div>
-    )
+      <Footer />
+      <ToastContainer
+        position="top-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition:Bounce
+      />
+    </div>
   );
 }
